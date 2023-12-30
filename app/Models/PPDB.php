@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class PPDB extends Model
 {
     use HasFactory;
+
+    protected $table = 'ppdb';
+    protected $guarded = [];
+
 }

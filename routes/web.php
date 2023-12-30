@@ -111,7 +111,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('ppdb', PPDBController::class)->except([
         'show'
     ]);
+    Route::get('/ppdb/detail_data', [PPDBController::class, 'detail_data'])->name('ppdb.detail_data');
 
+    
 
     //exams
     
