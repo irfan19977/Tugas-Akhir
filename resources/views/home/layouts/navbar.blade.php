@@ -11,7 +11,7 @@
         </ul>
       </li>
       <li><a href="pricing.html">Eskul</a></li>
-      <li><a href="blog.html">Berita</a></li>
+      <li><a href="{{ route('berita') }}">Berita</a></li>
       
       <li><a href="contact.html">Contact Us</a></li>
       <li><a href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a></li>

@@ -6,6 +6,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AudioController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BeritaAdminController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\VideoController;
@@ -46,7 +47,9 @@ Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
-Route::get('/berita', [BeritaController::class, 'indexuser'])->name('berita');
+Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+Route::get('/detail_berita/{slug}', [BeritaController::class, 'detail'])->name('detail_berita');
+
 
 Auth::routes(['register' => false]);
 
@@ -113,7 +116,12 @@ Route::group(['middleware' => 'auth'], function(){
     ]);
     Route::get('/ppdb/detail_data', [PPDBController::class, 'detail_data'])->name('ppdb.detail_data');
 
-    
+    //Berita
+    Route::resource('beritaadmin', BeritaAdminController::class)->except([
+        'show'
+    ]);
+
+
 
     //exams
     

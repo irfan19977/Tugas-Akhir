@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BeritaController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +15,18 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        return view('home.berita');
+        $beritas = Berita::latest()->when(request()->q, function($query) {
+            $query->where('judul', 'like', '%'. request()->q . '%');
+        })->paginate(10);
+
+        return view('home.berita', compact('beritas'));
+    }
+    
+    public function detail($slug)
+    {
+        $beritas = Berita::where('slug', $slug)->firstOrFail();
+        $convert = Berita::pluck('isi')->first();
+
+        return view('home.detail_berita', compact('beritas', 'convert'));
     }
 }

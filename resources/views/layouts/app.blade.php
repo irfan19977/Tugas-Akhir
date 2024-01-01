@@ -60,10 +60,10 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html">SMK WIYATA MANDALA</a>
+                        <a href="/">SMK WIYATA MANDALA</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="index.html">SMK</a>
+                        <a href="/">SMK</a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">MAIN MENU</li>
@@ -72,13 +72,13 @@
                                 <span>Dashboard</span></a></li>
                         @can('pengumuman.index')
                         <li class="{{ setActive('/pengumuman') }}"><a class="nav-link"
-                                href="{{  route('pengumuman.index') }}"><i class="fas fa-book-open"></i>
+                                href="{{  route('pengumuman.index') }}"><i class="fa fa-bullhorn"></i>
                                 <span>Pengumuman</span></a></li>
                         @endcan
 
                         @can('ppdb.index')
                         <li class="{{ setActive('/ppdb') }}"><a class="nav-link"
-                                href="{{  route('ppdb.index') }}"><i class="fas fa-book-open"></i>
+                                href="{{  route('ppdb.index') }}"><i class="fa fa-pencil"></i>
                                 <span>Pendaftaran</span></a></li>
                         @endcan
 
@@ -100,10 +100,10 @@
                                 <span>Subject</span></a></li>
                         @endcan
 
-                        @can('events.index')
-                        <li class="{{ setActive('admin/event') }}"><a class="nav-link"
-                                href="#"><i class="fas fa-bell"></i>
-                                <span>Agenda</span></a></li>
+                        @can('beritaadmin.index')
+                        <li class="{{ setActive('/berita') }}"><a class="nav-link"
+                                href="{{ route('beritaadmin.index') }}"><i class="fa fa-newspaper-o"></i>
+                                <span>Berita</span></a></li>
                         @endcan
 
                         @if(auth()->user()->can('images.index') || auth()->user()->can('videos.index') || auth()->user()->can('audios.index') || auth()->user()->can('documents.index'))

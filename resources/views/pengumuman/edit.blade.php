@@ -9,7 +9,7 @@
 
         <div class="section-body">
 
-            @can('pengumuman.create')
+            @can('pengumuman.edit')
                 <div class="card">
                     <div class="card-header">
                         <h4><i class="fas fa-file-video"></i> Edit Pengumuman</h4>
