@@ -12,7 +12,7 @@
             @can('ppdb.create')
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-file-video"></i> Pendaftaran Siswa</h4>
+                    <h4><i class="fa fa-user-circle"></i> Pendaftaran Siswa</h4>
                 </div>
 
                 <div class="card-body">

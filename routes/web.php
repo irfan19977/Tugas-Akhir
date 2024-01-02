@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AkController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\RoleController;
@@ -46,6 +47,8 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
+Route::get('/ak', [AkController::class, 'index'])->name('ak');
 
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
 Route::get('/detail_berita/{slug}', [BeritaController::class, 'detail'])->name('detail_berita');
@@ -115,6 +118,7 @@ Route::group(['middleware' => 'auth'], function(){
         'show'
     ]);
     Route::get('/ppdb/detail_data', [PPDBController::class, 'detail_data'])->name('ppdb.detail_data');
+    Route::get('/ppdb/export/excel', [PPDBController::class, 'export_excel']);
 
     //Berita
     Route::resource('beritaadmin', BeritaAdminController::class)->except([

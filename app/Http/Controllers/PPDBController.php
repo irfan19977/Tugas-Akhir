@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportData;
 use App\Models\PPDB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PPDBController extends Controller
 {
@@ -38,9 +40,9 @@ class PPDBController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function export_excel()
     {
-        //
+        return Excel::download(new ExportData, "ppdb.xlsx");
     }
 
     /**

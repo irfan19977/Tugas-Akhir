@@ -4,7 +4,7 @@
       <li><a href="{{ route('profile') }}">Profile</a></li>
       <li class="dropdown"><a href="#"><span>Jurusan</span> <i class="bi bi-chevron-down"></i></a>
         <ul>
-          <li><a href="#">Akuntansi dan Keuangan Lembaga</a></li>
+          <li><a href="{{ route('ak') }}">Akuntansi dan Keuangan Lembaga</a></li>
           <li><a href="#">Teknik Komputer Jaringan dan Telekomunikasi</a></li>
           <li><a href="#">Desain Komunikasi Visual</a></li>
           <li><a href="#">Asisten Keperawatan</a></li>

@@ -71,12 +71,18 @@ figure figcaption {
   font-size: 0.8rem;
 }
 
+.frame {
+  border: 3px solid #f0f0f0; /* Warna bingkai */
+  padding: 10px; /* Ruang di dalam bingkai */
+  border-radius: 10px; /* Tambahkan sedikit sudut membulat */
+}
+
 section {
   overflow: hidden;
 }
 
 .section {
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 
 .section-heading {
@@ -415,6 +421,22 @@ section {
 
 .php-email-form textarea {
   min-height: 160px;
+}
+
+/* card */
+.card {
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex; /* Tambahkan display flex untuk membuat konten terpisah */
+  flex-wrap: wrap; /* Ketika tidak muat, konten akan melanjut ke baris baru */
+}
+
+.left-margin {
+  margin-left: 20px; /* Sesuaikan nilai margin kiri sesuai kebutuhan */
 }
 
 @keyframes animate-loading {
