@@ -67,41 +67,41 @@
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">MAIN MENU</li>
-                        <li class="{{ setActive('/dashboard') }}"><a class="nav-link"
+                        <li class="{{ Request::is('dashboard') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{ route('dashboard.index') }}"><i class="fas fa-tachometer-alt"></i>
                                 <span>Dashboard</span></a></li>
                         @can('pengumuman.index')
-                        <li class="{{ setActive('/pengumuman') }}"><a class="nav-link"
+                        <li class="{{ Request::is('pengumuman') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{  route('pengumuman.index') }}"><i class="fa fa-bullhorn"></i>
                                 <span>Pengumuman</span></a></li>
                         @endcan
 
                         @can('ppdb.index')
-                        <li class="{{ setActive('/ppdb') }}"><a class="nav-link"
+                        <li class="{{ Request::is('ppdb') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{  route('ppdb.index') }}"><i class="fa fa-pencil"></i>
                                 <span>Pendaftaran</span></a></li>
                         @endcan
 
                         @can('exams.index')
-                        <li class="{{ setActive('/exam') }}"><a class="nav-link"
+                        <li class="{{ Request::is('exams') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{  route('exams.index') }}"><i class="fas fa-book-open"></i>
                                 <span>Exams</span></a></li>
                         @endcan
 
                         @can('questions.index')
-                        <li class="{{ setActive('/question') }}"><a class="nav-link"
+                        <li class="{{ Request::is('questions') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{ route('questions.index') }}"><i class="fas fa-question"></i> <span>Questions</span></a>
                         </li>
                         @endcan
 
                         @can('subjects.index')
-                        <li class="{{ setActive('/subject') }}"><a class="nav-link"
+                        <li class="{{ Request::is('subjects') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{ route('subjects.index') }}"><i class="fas fa-atlas"></i>
                                 <span>Subject</span></a></li>
                         @endcan
 
                         @can('beritaadmin.index')
-                        <li class="{{ setActive('/berita') }}"><a class="nav-link"
+                        <li class="{{ Request::is('beritaadmin') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{ route('beritaadmin.index') }}"><i class="fa fa-newspaper-o"></i>
                                 <span>Berita</span></a></li>
                         @endcan
@@ -111,25 +111,25 @@
                         @endif
                         
                         @can('images.index')
-                        <li class="{{ setActive('/image') }}"><a class="nav-link"
+                        <li class="{{ Request::is('images') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{ route('images.index') }}"><i class="fas fa-image"></i>
                                 <span>Image</span></a></li>
                         @endcan
 
                         @can('videos.index')
-                        <li class="{{ setActive('/video') }}"><a class="nav-link"
+                        <li class="{{ Request::is('videos') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{ route('videos.index') }}"><i class="fas fa-video"></i>
                                 <span>Video</span></a></li>
                         @endcan
 
                         @can('audios.index')
-                        <li class="{{ setActive('/audio') }}"><a class="nav-link"
+                        <li class="{{ Request::is('audios') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{ route('audios.index') }}"><i class="fas fa-volume-up"></i>
                                 <span>Audio</span></a></li>
                         @endcan
 
                         @can('documents.index')
-                        <li class="{{ setActive('/document') }}"><a class="nav-link"
+                        <li class="{{ Request::is('documents') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{ route('documents.index') }}"><i class="fas fa-file-word"></i>
                                 <span>Document</span></a></li>
                         @endcan
@@ -145,27 +145,27 @@
                         @endcan
 
                         <li
-                            class="dropdown {{ setActive('admin/role'). setActive('admin/permission'). setActive('admin/user') }}">
+                            class="dropdown {{ Request::is('roles', 'permissions', 'users') ? 'active' : ''}}">
                             @if(auth()->user()->can('roles.index') || auth()->user()->can('permission.index') || auth()->user()->can('users.index'))
-                                <a href="#" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>Users
+                                <a href="#" class="nav-link has-dropdown "><i class="fas fa-users"></i><span>Users
                                 Management</span></a>
                             @endif
                             
                             <ul class="dropdown-menu">
                                 @can('roles.index')
-                                    <li class="{{ setActive('admin/role') }}"><a class="nav-link"
+                                    <li class="{{ Request::is('roles') ? 'active' : ''}}"><a class="nav-link"
                                         href="{{ route('roles.index') }}"><i class="fas fa-unlock"></i> Roles</a>
                                 </li>
                                 @endcan
 
                                 @can('permissions.index')
-                                    <li class="{{ setActive('/permission') }}"><a class="nav-link"
+                                    <li class="{{ Request::is('permissions') ? 'active' : ''}}"><a class="nav-link"
                                     href="{{ route('permissions.index') }}"><i class="fas fa-key"></i>
                                     Permissions</a></li>
                                 @endcan
 
                                 @can('users.index')
-                                    <li class="{{ setActive('/user') }}"><a class="nav-link"
+                                    <li class="{{ Request::is('users') ? 'active' : ''}}"><a class="nav-link"
                                         href="{{ route('users.index') }}"><i class="fas fa-users"></i> Users</a>
                                 </li>
                                 @endcan

@@ -60,10 +60,10 @@
           <div class="col-md-4">
             <div class="step">
               <span class="number">03</span>
-              <h3>Prestasi Sekolah</h3>
+              <h3>Manual Book</h3>
               <p>
-                Prestasi yang tersedia di SMK Wiyata Mandala sebagai berikut</p>
-              <p><a href="#" class="btn btn-primary">Info Selengkapnya</a></p>
+                Berikut merupakan manual book website SMK Wiyata Mandala</p>
+              <p><a href="#" class="btn btn-primary">Download Manual Book</a></p>
             </div>
           </div>
         </div>

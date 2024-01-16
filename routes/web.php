@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AkController;
+use App\Http\Controllers\AsperController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\RoleController;
@@ -15,11 +16,14 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DkvController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PPDBController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TkjController;
 use App\Models\Exam;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +53,9 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::get('/ak', [AkController::class, 'index'])->name('ak');
+Route::get('/tkj', [TkjController::class, 'index'])->name('tkj');
+Route::get('/dkv', [DkvController::class, 'index'])->name('dkv');
+Route::get('/asper', [AsperController::class, 'index'])->name('asper');
 
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
 Route::get('/detail_berita/{slug}', [BeritaController::class, 'detail'])->name('detail_berita');

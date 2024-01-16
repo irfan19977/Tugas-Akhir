@@ -21,10 +21,9 @@
         <div class="row align-items-center">
             <div class="col-12">
                 <div class="row justify-content-center">
-                    <div class="col-md-7 text-center hero-text">
-                        <h1 data-aos="fade-up" data-aos-delay="">Profile Sekolah</h1>
-                        <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Berikut merupakan profile sekolah SMK
-                            Wiyata Mandala</p>
+                    <div class="col-md-9 text-center hero-text">
+                        <h1 data-aos="fade-up" data-aos-delay="">Akuntansi dan Keuangan Lembaga</h1>
+                        <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Berikut merupakan profile jurusan Akuntansi dan Keuangan Lembaga</p>
                     </div>
                 </div>
             </div>
@@ -33,11 +32,19 @@
 
 </section>
 
-<section class="section2">
-    <div class="container">
-        <div class="row align-items-center">
+<section class="section pb-0">
+    <div class="container ">
+        <div class="row align-items-center" data-aos="fade-right">
+            <div class="col-md-3 order-2"  data-aos="fade-right">
+                <figure>
+                    <img src="{{ asset('assets/img/akuntansi.jpg') }}" alt="Image" class="img-fluid">
+                    <figcaption
+                        style="font-family: Arial, sans-serif; font-style: italic; font-size: 14px; text-align: center;">
+                        Keterangan Gambar</figcaption>
+                </figure>
+            </div>
             <div class="col-md-9  order-2 justify-text">
-                <h2 class="mb-6">Mengenal Lebih Dekat Jurusan Akuntansi Keuangan</h2>
+                <h3 class="mb-6">Mengenal Lebih Dekat Jurusan Akuntansi Keuangan</h3>
                 <p class="mb-6">Jurusan Akuntansi Keuangan merupakan salah satu bidang studi yang mendalami pencatatan,
                     analisis, dan pelaporan informasi keuangan suatu entitas. Dalam konteks pendidikan tinggi, jurusan
                     ini menjadi salah satu pilihan yang populer bagi individu yang tertarik dalam bidang akuntansi dan
@@ -55,25 +62,34 @@
                     bisnis.
                 </p>
             </div>
-            <div class="col-md-3" data-aos="fade-right">
-                <figure>
-                    <img src="{{ asset('assets/img/akuntansi.jpg') }}" alt="Image" class="img-fluid">
-                    <figcaption
-                        style="font-family: Arial, sans-serif; font-style: italic; font-size: 14px; text-align: center;">
-                        Keterangan Gambar</figcaption>
-                </figure>
-            </div>
+            
         </div>
     </div>
 </section>
 
-<section class="section pb-0">
+<section class="section pb-0" style="min-height: 400px;">
     <div class="container">
         <div class="row align-items-center justify-text">
-            <div class="col-md-6 " data-aos="fade-right" style="height: 450px;">
-                <h4 class="mb-4 text-center"><strong>Materi Yang Dipelajari</strong></h4>
-                <p class="mb-4">Mahasiswa jurusan Akuntansi Keuangan akan mengikuti beragam mata kuliah yang mencakup:
+            <div class="col-md-6" data-aos="fade-left" style="min-height: 400px;">
+                <h3 class="mb-4 text-center">Alasan Memilih Jurusan Akuntansi Keuangan</h3>
+                <p class="mb-4">Ada beberapa alasan mengapa seseorang memilih untuk mengejar pendidikan di bidang Akuntansi Keuangan:</p>
+                <p>
+                    <ol>
+                        <li class="mb-2"><strong>Peluang Karir yang Luas :</strong> Lulusan jurusan ini memiliki peluang karir yang luas di berbagai industri. Mereka dapat bekerja sebagai akuntan, auditor, analis keuangan, konsultan pajak, dan banyak lagi.
+                        </li>
+                        <li class="mb-2"><strong>Stabilitas Profesional :</strong>Profesi dalam bidang akuntansi dan keuangan dikenal karena stabilitasnya. Permintaan akan tenaga ahli keuangan selalu ada di berbagai jenis organisasi.
+                        </li>
+                        <li class="mb-2"> <strong>Kontribusi pada Pengambilan Keputusan :</strong> Ilmu yang dipelajari dalam jurusan ini memungkinkan lulusannya untuk memberikan kontribusi yang berarti dalam pengambilan keputusan keuangan dalam perusahaan.
+                        </li>
+                        <li class="mb-2"><strong>Gaji yang Kompetitif :</strong> Lulusan Akuntansi Keuangan memiliki potensi gaji yang kompetitif di pasar kerja.
+                        </li>
+                    </ol>
                 </p>
+            </div>
+            <div class="col-md-6" data-aos="fade-right" style="min-height: 420px;">
+                <h3 class="mb-4 text-center">Materi Yang Dipelajari</h3>
+                <br>
+                <p class="mb-4">Mahasiswa jurusan Akuntansi Keuangan akan mengikuti beragam mata kuliah yang mencakup: </p>
                 <p>
                     <ol>
                         <li class="mb-2"><strong>Dasar-Dasar Akuntansi :</strong> Mengenai prinsip-prinsip dasar akuntansi, seperti
@@ -89,30 +105,13 @@
                             investasi, pembiayaan, dan pengelolaan risiko keuangan.
                         </li>
                     </ol>
-                </p>                
-            </div>
-            <div class="col-md-6 " data-aos="fade-right" style="height: 450px;">
-                <h4 class="mb-4 text-center"><strong>Alasan Memilih Jurusan Akuntansi Keuangan</strong></h4>
-                <p class="mb-4">Ada beberapa alasan mengapa seseorang memilih untuk mengejar pendidikan di bidang Akuntansi Keuangan:
-                </p>
-                <p>
-                    <ol>
-                        <li class="mb-2"><strong>Peluang Karir yang Luas :</strong> Lulusan jurusan ini memiliki peluang karir yang luas di berbagai industri. Mereka dapat bekerja sebagai akuntan, auditor, analis keuangan, konsultan pajak, dan banyak lagi.
-                        </li>
-                        <li class="mb-2"><strong>Stabilitas Profesional :</strong>Profesi dalam bidang akuntansi dan keuangan dikenal karena stabilitasnya. Permintaan akan tenaga ahli keuangan selalu ada di berbagai jenis organisasi.
-                        </li>
-                        <li class="mb-2"> <strong>Kontribusi pada Pengambilan Keputusan :</strong> Ilmu yang dipelajari dalam jurusan ini memungkinkan lulusannya untuk memberikan kontribusi yang berarti dalam pengambilan keputusan keuangan dalam perusahaan.
-                        </li>
-                        <li class="mb-2"><strong>Gaji yang Kompetitif :</strong> Lulusan Akuntansi Keuangan memiliki potensi gaji yang kompetitif di pasar kerja.
-                        </li>
-                    </ol>
-                </p>                
+                </p> 
             </div>
         </div>
     </div>
 </section>
 
-<section class="section pb-0">
+{{-- <section class="section pb-0">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-4">
@@ -161,7 +160,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 
 

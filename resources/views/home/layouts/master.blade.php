@@ -45,7 +45,7 @@
       <div class="logo">
         {{-- <h1><a href="index.html">SMK WIYATA MANDALA</a></h1> --}}
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="index.html"><img src="{{ asset('hekel/assets/img/tut-wuri.png') }}" alt="" ></a>
+        <a href="/"><img src="{{ asset('hekel/assets/img/tut-wuri.png') }}" alt="" ></a>
       </div>
 
      @include('home.layouts.navbar')
