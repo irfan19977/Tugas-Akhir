@@ -14,12 +14,15 @@ class PengumumanController extends Controller
     }
 
     public function index() {
-        $pengumumans = Pengumuman::latest()->when(request()->q, function($pengumumans) {
-            $pengumumans = $pengumumans->where('title', 'like', '%'. request()->q . '%');
-        })->paginate(10);
+    $pengumumans = Pengumuman::when(request()->q, function($query) {
+            $query->where('title', 'like', '%'. request()->q . '%');
+        })
+        ->orderBy('updated_at', 'desc') // Mengurutkan berdasarkan tanggal diubah secara descending (dari yang terbaru)
+        ->paginate(10);
 
-        return view('pengumuman.index', compact('pengumumans'));
-    }
+    return view('pengumuman.index', compact('pengumumans'));
+}
+
 
     public function store(Request $request)
     {

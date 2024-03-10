@@ -11,9 +11,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4>Invoices</h4>
+                    <h4>Daftar Pesan</h4>
                     <div class="card-header-action">
-                        <a href="#" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
+                        {{-- <a href="#" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a> --}}
                     </div>
                 </div>
                 <div class="card-body p-0">
@@ -25,7 +25,7 @@
                                     <th>Nomor Wa</th>
                                     <th>Status</th>
                                     <th>Waktu Pengiriman</th>
-                                    <th>Action</th>
+                                    <th>Aksi</th>
                                 </tr>
 
                             </tbody>

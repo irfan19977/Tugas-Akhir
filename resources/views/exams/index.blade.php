@@ -11,7 +11,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-exam"></i> Ujian</h4>
+                    <h4><i class="fas fa-exam"></i> Daftar Ujian</h4>
                 </div>
 
                 <div class="card-body">
@@ -40,16 +40,16 @@
                             <tr>
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                 <th scope="col">NAMA</th>
-                                <th scope="col">WAKTU</th>
+                                <th scope="col">WAKTU UJIAN</th>
                                 <th scope="col">TOTAL SOAL</th>
                                 @hasanyrole('teacher|admin')
-                                <th scope="col">TAMBAHKAN SISWA</th>
+                                <th scope="col">TOTAL SISWA</th>
                                 @endhasanyrole
                                 @hasrole('student')
                                 <th scope="col">NILAI</th>
                                 @endhasrole
-                                <th scope="col">MULAI</th>
-                                <th scope="col">SELESAI</th>
+                                <th scope="col">WAKTU MULAI</th>
+                                <th scope="col">WAKTU SELESAI</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
                             </thead>
@@ -58,7 +58,7 @@
                                 <tr>
                                     <th scope="row" style="text-align: center">{{ ++$no + ($exams->currentPage()-1) * $exams->perPage() }}</th>
                                     <td>{{ $exam->name }}</td>
-                                    <td>{{ $exam->time }}</td>
+                                    <td>{{ $exam->time }} Menit</td>
                                     <td>{{ $exam->questions->count() }}</td>
                                     @hasanyrole('teacher|admin')
                                     <td>{{ $exam->users->count() }}</td>
@@ -69,9 +69,18 @@
                                     <td>{{ TanggalID($exam->start) }}</td>
                                     <td>{{ TanggalID($exam->end) }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('exams.show', $exam->id) }}" class="btn btn-sm btn-info">
+                                        @hasrole('student')
+                                        @if($user->getScore(Auth()->id(), $exam->id) === null)
+                                            <a href="{{ route('exams.show', $exam->id) }}" class="btn btn-sm btn-info">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        @endif
+                                        @endhasrole
+                                        @hasrole('teacher|admin')
+                                        <a href="{{ route('exams.hasil', $exam->id) }}" class="btn btn-sm btn-info">
                                             <i class="fa fa-eye"></i>
                                         </a>
+                                        @endhasrole
                                         @can('exams.edit')
                                             <a href="{{ route('exams.edit', $exam->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-pencil-alt"></i>

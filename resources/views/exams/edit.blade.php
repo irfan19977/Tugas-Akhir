@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>MULAI</label>
+                            <label>WAKTU MULAI</label>
                             <input type="datetime-local" name="start" value="<?php echo date('Y-m-d\TH:i:s', strtotime($exam->start)); ?>" class="form-control @error('start') is-invalid @enderror">
 
                             @error('start')
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>SELESAI</label>
+                            <label>WAKTU SELESAI</label>
                             <input type="datetime-local" name="end" value="<?php echo date('Y-m-d\TH:i:s', strtotime($exam->end)); ?>" class="form-control @error('end') is-invalid @enderror">
 
                             @error('end')
@@ -77,7 +77,7 @@
 
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                             SIMPAN</button>
-                        <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
+                        <button class="btn btn-warning btn-reset" type="back"><i class="fa fa-redo"></i> KEMBALI</button>
 
                     </form>
                 </div>

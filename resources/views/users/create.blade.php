@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>PASSWORD</label>
+                                    <label>KONFIRMASI PASSWORD</label>
                                     <input type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder="Masukkan Konfirmasi Password"
                                         class="form-control">
                                 </div>

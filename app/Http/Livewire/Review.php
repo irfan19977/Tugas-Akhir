@@ -57,10 +57,7 @@ class Review extends Component
         return view('livewire.review', [
             'exam'      => Exam::findOrFail($this->exam_id),
             'questions' => $this->questions(),
-            'video'     => new Video(),
-            'audio'     => new Audio(),
-            'document'  => new Document(),
-            'image'     => new Image()
+
         ]);
     }
 }

@@ -62,7 +62,7 @@
 
                         <div class="form-group">
                             <label>Keterangan Sampul</label>
-                            <input type="text" name="keterangan" value="{{ old('keterangan') }}"
+                            <input type="text" name="keterangan" value="{{ $berita->keterangan }}"
                                 placeholder="Masukkan Keterangan Sampul"
                                 class="form-control @error('keterangan') is-invalid @enderror">
                             @error('keterangan')
@@ -73,9 +73,9 @@
                         </div>
 
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-upload"></i>
-                            UPLOAD</button>
+                            UPDATE</button>
                         <a href="javascript:history.back()" class="btn btn-warning btn-back">
-                            <i class="fa fa-redo"></i> BACK
+                            <i class="fa fa-redo"></i> KEMBALI
                         </a>
 
 

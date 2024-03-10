@@ -22,7 +22,7 @@
 
                             <div class="form-group">
                                 <label>NAMA</label>
-                                <input type="text" name="name" value="{{ old('name') }}" placeholder="Masukkan Judul Subject" class="form-control @error('name') is-invalid @enderror">
+                                <input type="text" name="name" value="{{ old('name') }}" placeholder="Masukkan Nama Ujian" class="form-control @error('name') is-invalid @enderror">
 
                                 @error('name')
                                 <div class="invalid-feedback" style="display: block">
@@ -31,7 +31,7 @@
                                 @enderror
                             </div>
 
-                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-check-circle"></i> SUBMIT</button>
+                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-check-circle"></i> KIRIM</button>
                             <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
 
 
@@ -74,7 +74,11 @@
                                     <th scope="row" style="text-align: center">{{ ++$no + ($subjects->currentPage()-1) * $subjects->perPage() }}</th>
                                     <td>{{ $subject->name }}</td>
                                     <td class="text-center">
+                                        <a href="{{ route('subjects.edit', $subject->slug) }}" class="btn btn-sm btn-primary">
+                                            <i class="fa fa-pencil-alt"></i>
+                                        </a>
                                         @can('subjects.delete')
+                                        
                                             <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $subject->id }}">
                                                 <i class="fa fa-trash"></i>
                                             </button>

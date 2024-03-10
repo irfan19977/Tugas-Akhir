@@ -4,7 +4,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Kontak masuk</h1>
+            <h1>Detail Pesan</h1>
         </div>
 
         <div class="section-body">

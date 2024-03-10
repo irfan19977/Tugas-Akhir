@@ -23,7 +23,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-7 text-center hero-text">
                         <h1 data-aos="fade-up" data-aos-delay="">Contact Us</h1>
-                        <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Hubungi kami untuk bntuan atau
+                        <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Hubungi kami untuk bantuan atau
                             pertanyaan tambahan</p>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         <div class="row mb-5 align-items-end">
             <div class="col-md-12" data-aos="fade-up">
 
-                <h2>Contact Form</h2>
+                <h2>Formulir Hubungi Kami</h2>
                 <p class="mb-0">Silakan gunakan formulir kontak di bawah ini untuk mengirim pertanyaan atau memberikan
                     umpan balik. Mohon masukkan nama, email, nomor WhatsApp yang aktif, dan isi dari saran atau
                     pertanyaan Anda. Kami akan dengan senang hati membantu Anda!</p>
@@ -55,7 +55,7 @@
                     </li>
                     <li class="mb-3">
                         <strong class="d-block mb-1">no_wa</strong>
-                        <span>+1 232 3235 324</span>
+                        <span>0835-328-631</span>
                     </li>
                     <li class="mb-3">
                         <strong class="d-block mb-1">Email</strong>

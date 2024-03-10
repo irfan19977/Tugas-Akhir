@@ -34,8 +34,7 @@
 
                             <div class="form-group">
                                 <label>CAPTION</label>
-                                <input type="text" name="caption" value="{{ $pengumumans->caption }}" placeholder="Masukkan Caption Video" class="form-control @error('caption') is-invalid @enderror">
-
+                                <textarea name="caption" cols="30" rows="30" class="form-control">{{ $pengumumans->caption }}</textarea>
                                 @error('caption')
                                 <div class="invalid-feedback" style="display: block">
                                     {{ $message }}
@@ -43,9 +42,9 @@
                                 @enderror
                             </div>
 
-                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-upload"></i> UPLOAD</button>
+                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-upload"></i> UPDATE</button>
                             <a href="javascript:history.back()" class="btn btn-warning btn-back">
-                                <i class="fa fa-redo"></i> BACK
+                                <i class="fa fa-redo"></i> KEMBALI
                             </a>                            
 
 

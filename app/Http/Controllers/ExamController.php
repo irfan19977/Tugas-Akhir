@@ -159,14 +159,14 @@ class ExamController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(exam $exam)
-{
+    {
     $questions = $exam->questions()->where('exam_id', $exam->id)->get();
     
     // Ambil skor dari tabel pivot exam_user
     $userScore = User::find(Auth::id())->exams()->where('exam_id', $exam->id)->first()->pivot->score;
     
     return view('exams.show', compact('exam', 'questions', 'userScore'));
-}
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -228,5 +228,17 @@ class ExamController extends Controller
     {
         return view('exams.review', compact('userId', 'examId'));
     }
+
+    public function hasil()
+    {
+            $exams = Exam::latest()->when(request()->q, function($exams) {
+                $exams = $exams->where('name', 'like', '%'. request()->q . '%');
+            })->paginate(10);
+        
+        
+        $user = new User();
+        return view('exams.hasil', compact('exams', 'user'));
+    }
+
 
 }

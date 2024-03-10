@@ -10,7 +10,7 @@
           <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
-                <div class="card-icon bg-success">
+                <div class="card-icon bg-primary">
                   <i class="fa fa-bullhorn text-white fa-2x"></i>
                 </div>
                 <div class="card-wrap">
@@ -25,7 +25,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-success">
+                    <div class="card-icon bg-danger">
                         <i class="fas fa-atlas text-white fa-2x"></i>
                     </div>
                     <div class="card-wrap">
@@ -40,12 +40,12 @@
             </div>         
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
-                <div class="card-icon bg-primary">
+                <div class="card-icon bg-warning">
                   <i class="fa fa-book-open text-white fa-2x"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>EXAMS</h4>
+                    <h4>UJIAN</h4>
                   </div>
                   <div class="card-body">
                     {{ App\Models\Exam::count() ?? '0' }}
@@ -55,7 +55,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
-                <div class="card-icon bg-danger">
+                <div class="card-icon bg-success">
                   <i class="fas fa-question text-white fa-2x"></i>
                 </div>
                 <div class="card-wrap">
@@ -70,7 +70,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
-                <div class="card-icon bg-warning">
+                <div class="card-icon bg-primary">
                   <i class="fa fa-tags text-white fa-2x"></i>
                 </div>
                 <div class="card-wrap">
@@ -85,7 +85,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
-                <div class="card-icon bg-success">
+                <div class="card-icon bg-danger">
                   <i class="fas fa-newspaper text-white fa-2x"></i>
                 </div>
                 <div class="card-wrap">
@@ -100,12 +100,12 @@
             </div> 
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
-                <div class="card-icon bg-success">
+                <div class="card-icon bg-warning">
                   <i class="fa fa-users text-white fa-2x"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>STUDENTS</h4>
+                    <h4>USER</h4>
                   </div>
                   <div class="card-body">
                     {{ App\Models\User::role('student')->count() ?? '0' }}
@@ -126,7 +126,7 @@
               </div>
               <div class="card-wrap">
                 <div class="card-header">
-                  <h4>MY EXAMS</h4>
+                  <h4>UJIAN SAYA</h4>
                 </div>
                 <div class="card-body">
                   {{ $exams->count() ?? '0' }}
@@ -137,7 +137,7 @@
           
           <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <div class="card card-statistic-1">
-              <div class="card-icon bg-success">
+              <div class="card-icon bg-warning">
                 <i class="fa fa-bullhorn text-white fa-2x"></i>
               </div>
               <div class="card-wrap">

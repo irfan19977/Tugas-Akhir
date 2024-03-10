@@ -21,24 +21,22 @@
                             @csrf
 
                             <div class="form-group">
-                                <label>TITLE</label>
-                                <input type="text" name="title" value="{{ old('title') }}" placeholder="Masukkan Judul Video" class="form-control @error('title') is-invalid @enderror">
-
+                                <label>JUDUL</label>
+                                <input type="text" name="title" value="{{ old('title') }}" placeholder="Masukkan Judul Pengumuman" class="form-control @error('title') is-invalid @enderror">
                                 @error('title')
-                                <div class="invalid-feedback" style="display: block">
-                                    {{ $message }}
-                                </div>
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
                                 @enderror
                             </div>
 
                             <div class="form-group">
-                                <label>CAPTION</label>
-                                <input type="text" name="caption" value="{{ old('caption') }}" placeholder="Masukkan Caption Video" class="form-control @error('caption') is-invalid @enderror">
-
+                                <label>DESKRIPSI</label>
+                                <textarea name="caption" cols="30" rows="30" class="form-control @error('caption') is-invalid @enderror" placeholder="Masukkan Deskripsi Pengumuman">{{ old('caption') }}</textarea>
                                 @error('caption')
-                                <div class="invalid-feedback" style="display: block">
+                                <span class="invalid-feedback" role="alert">
                                     {{ $message }}
-                                </div>
+                                </span>
                                 @enderror
                             </div>
 
@@ -55,7 +53,7 @@
             @can('pengumuman.showadmin')
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fa fa-bullhorn"></i> Pengumuman</h4>
+                    <h4><i class="fa fa-bullhorn"></i> Daftar Pengumuman</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('pengumuman.index') }}" method="GET">
@@ -76,7 +74,7 @@
                             <tr>
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                 <th scope="col">JUDUL</th>
-                                <th scope="col">KETERANGAN</th>
+                                <th scope="col">DESKRIPSI</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
                             </thead>
@@ -111,21 +109,30 @@
             @endcan
 
             @can('pengumuman.showuser')
-            @foreach ($pengumumans as $pengumuman)
-            <div class="card">
-                
-                    <div class="card-header">
-                    <h4><i class="fa fa-bullhorn"></i><strong> {{ $pengumuman->title }}</strong></h4>
-                </div>
+                @foreach ($pengumumans as $pengumuman)
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>{{ $pengumuman->title }}</h4>
+                            <div class="card-header-action">
+                                <a data-collapse="#mycard-collapse-{{ $pengumuman->id }}" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
+                            </div>
+                        </div>
+                        <div class="collapse show" id="mycard-collapse-{{ $pengumuman->id }}">
+                            <div class="card-body">
+                                {{ $pengumuman->caption }}
+                            </div>
+                            <div class="card-footer">
+                                @if ($pengumuman->created_at != $pengumuman->updated_at)
+                                    {{ $pengumuman->updated_at->format('d-m-Y H:i:s') }}
+                                @else
+                                    {{ $pengumuman->created_at->format('d-m-Y H:i:s') }}
+                                @endif
 
-                <div class="card-body">
-                    <p>{{ $pengumuman->caption }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
 
-                </div>
-                
-                
-            </div>
-            @endforeach
             @endcan
         </div>
 

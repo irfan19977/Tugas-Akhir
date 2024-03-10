@@ -37,12 +37,19 @@
                                 <form method="POST" action="{{ route('password.email') }}" class="needs-validation"
                                     novalidate="">
                                     @csrf
+                                    @if(session('status'))
+                                        <div class="alert alert-success">
+                                            {{ session('status') }}
+                                            {{ session('message') }}
+                                        </div>
+                                    @endif
                                     <div class="form-group">
                                         <label for="email">Email</label>
                                         <input id="email" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
                                             placeholder="Masukkan Alamat Email" value="{{ old('email') }}" tabindex="1"
                                             required>
+                                        <span id="email-error" class="invalid-feedback" role="alert"></span>
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -84,6 +91,27 @@
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.querySelector('form');
+    
+            form.addEventListener('submit', function (event) {
+                var email = document.getElementById('email').value;
+
+            var emailError = document.getElementById('email-error');
+
+            if (!email) {
+                event.preventDefault();
+                emailError.textContent = 'Pelase fill out this field';
+            } else if (!email.includes('@')) {
+                event.preventDefault();
+                emailError.textContent = 'Please include an "@" in the email address. "a" is missing an "@". ';
+            } else {
+                emailError.textContent = '';
+            }
+            });
+        });
+    </script>
 </body>
 
 </html>

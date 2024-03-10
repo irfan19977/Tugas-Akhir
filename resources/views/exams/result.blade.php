@@ -5,7 +5,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>DETAIL UJIAN</h1>
+            <h1>HASIL UJIAN</h1>
         </div>
 
         <div class="section-body">
@@ -16,15 +16,16 @@
                 </div>
 
                 <div class="card-body">
-                    <h4>Score Anda Adalah {{ round($score, 2) }}</h4>
+                    <h4>Nilai Anda Adalah {{ round($score, 2) }}</h4>
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('exams.review', [$user->id, $exam->id]) }}" class="btn btn-primary mr-1 btn-submit" role="button" aria-pressed="true">REVIEW</a>
-                    <a href="{{ route('exams.index') }}" class="btn btn-warning btn-resetk" role="button" aria-pressed="true">BACK</a>
+                    <a href="{{ route('exams.index') }}" class="btn btn-warning btn-resetk" role="button" aria-pressed="true">KEMBALI</a>
                 </div>
             </div>
         </div>
     </section>
 </div>
+
 
 @stop

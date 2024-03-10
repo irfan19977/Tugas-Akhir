@@ -47,16 +47,16 @@ class Quiz extends Component
 
     public function answers($questionId, $option)
     {
-        $this->selectedAnswers[$questionId] = $questionId.'-'.$option;
+        session(['selectedAnswers.' . $questionId => $questionId.'-'.$option]);
     }
 
     public function submitAnswers()
     {
-        if(!empty($this->selectedAnswers))
+        if(!empty(session('selectedAnswers')))
         {
             
             $score = 0;
-            foreach($this->selectedAnswers as $key => $value)
+            foreach(session('selectedAnswers') as $key => $value)
             {
                 $userAnswer = "";
                 $rightAnswer = Question::findOrFail($key)->answer;
@@ -70,7 +70,7 @@ class Quiz extends Component
             $score = 0;
         }
         
-        $selectedAnswers_str = json_encode($this->selectedAnswers);
+        $selectedAnswers_str = json_encode(session('selectedAnswers'));
         $this->user_id = Auth()->id();
         $user = User::findOrFail($this->user_id);
         $user_exam = $user->whereHas('exams', function (Builder $query) {
@@ -88,13 +88,11 @@ class Quiz extends Component
 
     public function render()
     {
+        $selectedAnswers = session('selectedAnswers', []);
         return view('livewire.quiz', [
             'exam'      => Exam::findOrFail($this->exam_id),
             'questions' => $this->questions(),
-            'video'     => new Video(),
-            'audio'     => new Audio(),
-            'document'  => new Document(),
-            'image'     => new Image()
+            'selectedAnswers' => $selectedAnswers,
         ]);
     }
 }

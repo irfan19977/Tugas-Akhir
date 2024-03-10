@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="font-weight-bold">PERMISSIONS</label>
+                            <label class="font-weight-bold">HAK AKSES</label>
                             
                             @foreach ($permissions as $permission)
                             <div class="form-check form-check-inline">

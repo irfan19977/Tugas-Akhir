@@ -1,7 +1,7 @@
 <nav id="navbar" class="navbar">
     <ul>
       <li><a class="{{ Request::path() === '/' ? 'active' : '' }}" href="/">Home</a></li>
-      <li ><a class="{{ Request::is('profile') ? 'active' : ''}}" href="{{ route('profile') }}">Profile</a></li>
+      <li ><a class="{{ Request::is('profile') ? 'active' : ''}}" href="{{ route('profile') }}">Profil</a></li>
       <li class="dropdown"><a class="{{ Request::is('akuntansi-dan-keuangan-lembaga', 'teknik-komputer-dan-jaringan', 'design-komunikas-visual', 'asisten-keperawatan') ? 'active' : ''}}"><span>Jurusan</span> <i class="bi bi-chevron-down"></i></a>
         <ul>
           <li ><a href="{{ route('ak') }}">Akuntansi dan Keuangan Lembaga</a></li>

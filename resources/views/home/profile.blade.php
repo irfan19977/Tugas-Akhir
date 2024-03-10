@@ -22,8 +22,8 @@
             <div class="col-12">
                 <div class="row justify-content-center">
                     <div class="col-md-7 text-center hero-text">
-                        <h1 data-aos="fade-up" data-aos-delay="">Profile Sekolah</h1>
-                        <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Berikut merupakan profile sekolah SMK
+                        <h1 data-aos="fade-up" data-aos-delay="">Profil Sekolah</h1>
+                        <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Berikut merupakan profil sekolah SMK
                             Wiyata Mandala</p>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
             <div class="col-md-6 me-auto justify-text">
                 <h2 class="mb-6">SMK WIYATA MANDALA</h2>
                 <ul>
-                    <li class="mb-3">Alamat : Jl. Pare Kandangan No.1945, Kemirahan, Damarwulan, Kec. Kepung, Kabupaten
+                    <li class="mb-3">Alamat : Jl. Pare Kandangan No.10, Kemirahan, Damarwulan, Kec. Kepung, Kabupaten
                         Kediri, Jawa Timur 64293</li>
                     <li class="mb-3">Status : Swasta</li>
                     <li class="mb-3">NPSN : 20511969</li>
@@ -61,17 +61,13 @@
         <div class="row align-items-center justify-text">
             <div class="col-md-6 " data-aos="fade-right" style="min-height: 220px;">
                 <h2 class="mb-4">Visi Sekolah</h2>
-                <p class="mb-4">Lembaga pendidikan vokasi terbaik yang mencetak generasi cerdas, berkarakter kreatif
-                    dan berkarakter dengan spirit entrepreneurship
+                <p class="mb-4">Menjadi sekolah kejuruan nasional yang menghasilkan lulusan yang mampu memenuhi kebutuhan industri 4.0, berkarakter profil pelajar Pancasila, dan berjiwa kewirausahaan pada tahun 2028 dengan berpedoman pada al-Qur’an dan Hadits
                 </p>
-                <p><a href="#">Read More</a></p>
             </div>
             <div class="col-md-6" data-aos="fade-left" style="min-height: 220px;">
                 <!-- Sesuaikan tinggi minimum dengan kebutuhan -->
                 <h2 class="mb-4"> Misi Sekolah</h2>
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur at reprehenderit
-                    optio, laudantium eius quod, eum maxime molestiae porro omnis. Dolores aspernatur delectus
-                    impedit incidunt dolore mollitia esse natus beatae.</p>
+                <p class="mb-4">Mendidik anak bangsa dengan hati dan teknologi sehingga memenuhi dunia kerja. Menyelenggarakan pendidikan yang berfokus pada pengembangan dan moral siswa. Membangun kebersamaan sosial, jiwa kewirausahaan, gerakan cinta tanah air dan lingkungan</p>
             </div>
         </div>
     </div>

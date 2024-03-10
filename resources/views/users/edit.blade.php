@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>PASSWORD</label>
+                                    <label>KONFIRMASI PASSWORD</label>
                                     <input type="password" name="password_confirmation"
                                         value="{{ old('password_confirmation') }}"
                                         placeholder="Masukkan Konfirmasi Password" class="form-control">
@@ -80,7 +80,7 @@
 
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                             UPDATE</button>
-                        <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
+                        <button class="btn btn-warning btn-bcak" type="back"><i class="fa fa-redo"></i> KEMBALI</button>
 
                     </form>
                 </div>

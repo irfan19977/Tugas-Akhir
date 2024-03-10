@@ -4,14 +4,14 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Roles</h1>
+            <h1>Role</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-unlock"></i> Roles</h4>
+                    <h4><i class="fas fa-unlock"></i> Role</h4>
                 </div>
 
                 <div class="card-body">
@@ -38,7 +38,7 @@
                             <tr>
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                 <th scope="col" style="width: 15%">NAMA ROLE</th>
-                                <th scope="col">PERMISSIONS</th>
+                                <th scope="col">HAK AKSES</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
                             </thead>

@@ -50,9 +50,9 @@
         <div class="col-md-4 sidebar">
           <div class="sidebar-box">
             <img src="{{ asset('hekel/assets/img/aku.jpg') }}" alt="Image placeholder" class="img-fluid mb-4">
-            <h3>About The Author</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-            <p><a href="#" class="btn btn-primary btn-sm">Read More</a></p>
+            <h3>Tentang penulis</h3>
+            <p>Halo, nama saya Irfan Adi Prastyo. Saya seorang mahasiswa yang sedang menempuh studi di program D3 Sistem Informasi.</p>
+            <p><a href="#" class="btn btn-primary btn-sm">Baca Selengkapnya</a></p>
           </div>
         </div>
       </div>

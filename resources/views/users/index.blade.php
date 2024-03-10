@@ -4,14 +4,14 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Users</h1>
+            <h1>User</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-users"></i> Users</h4>
+                    <h4><i class="fas fa-users"></i> User</h4>
                 </div>
 
                 <div class="card-body">

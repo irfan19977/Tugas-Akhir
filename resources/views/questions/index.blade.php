@@ -37,7 +37,7 @@
                             <thead>
                             <tr>
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                <th scope="col">JUDUK</th>
+                                <th scope="col">JUDUL</th>
                                 <th scope="col">DETAIL</th>
                                 <th scope="col">LAMPIRAN</th>
                                 <th scope="col">PILIHAN A</th>
@@ -56,27 +56,26 @@
                                 <tr>
                                     <th scope="row" style="text-align: center">{{ ++$no + ($questions->currentPage()-1) * $questions->perPage() }}</th>
                                     <td>{{ $subject->getName($question->subject_id) }}</td>
-                                    <td>{{ $question->detail }}</td>
+                                    <td>{!! Str::limit(strip_tags($question->detail), 30) !!}</td>
                                     <td>
                                         @if ($question->video_id)
-                                            <a href=" {{ Storage::url('public/videos/'.$video->getLink($question->video_id)) }}">VIDEO</a>
+                                            <a href="{{ Storage::url('public/videos/'.$question->video_id) }}" target="_blank">VIDEO</a>
                                         @elseif($question->audio_id)
-                                            <a href=" {{ Storage::url('public/audios/'.$audio->getLink($question->audio_id)) }}">AUDIO</a>
-                                        @elseif($question->document_id)
-                                            <a href=" {{ Storage::url('public/documents/'.$document->getLink($question->document_id)) }}">DOCUMENT</a>
+                                            <a href="{{ Storage::url('public/audios/'.$question->audio_id) }}" target="_blank" >AUDIO</a>
                                         @elseif($question->image_id)
-                                            <a href=" {{ Storage::url('public/images/'.$image->getLink($question->image_id)) }}">IMAGE</a>
+                                            <a href="{{ Storage::url('public/images/'.$question->image_id) }}" target="_blank">IMAGE</a>
                                         @else
-                                            NO
+                                            TIDAK ADA LAMPIRAN
                                         @endif
                                     </td>
+                                    
                                     <td>{{ $question->option_A }}</td>
                                     <td>{{ $question->option_B }}</td>
                                     <td>{{ $question->option_C }}</td>
                                     <td>{{ $question->option_D }}</td>
                                     <td>{{ $question->option_E }}</td>
                                     <td>{{ $question->answer }}</td>
-                                    <td>{{ $question->explanation }}</td>
+                                    <td>{!! Str::limit(strip_tags($question->explanation), 30) !!}</td>
                                     <td>{{ $user->getName($question->created_by) }}</td>
                                     <td class="text-center">
                                         @can('questions.edit')

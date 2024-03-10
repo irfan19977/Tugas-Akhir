@@ -34,8 +34,6 @@
                             </div>
 
                             <div class="card-body">
-                                <!-- Login Form ... -->
-
                                 <!-- Registration Form -->
                                 <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate="">
                                     @csrf
@@ -43,6 +41,7 @@
                                         <label>NAMA USER</label>
                                         <input type="text" name="name" value="{{ old('name') }}" placeholder="Masukkan Nama User"
                                             class="form-control @error('name') is-invalid @enderror" required>
+                                        <span id="name-error" class="invalid-feedback" role="alert"></span>
                                         @error('name')
                                         <div class="invalid-feedback" style="display: block">
                                             {{ $message }}
@@ -54,6 +53,7 @@
                                         <label>EMAIL</label>
                                         <input type="email" name="email" value="{{ old('email') }}" placeholder="Masukkan Email"
                                             class="form-control @error('email') is-invalid @enderror" required>
+                                        <span id="email-error" class="invalid-feedback" role="alert"></span>
                                         @error('email')
                                         <div class="invalid-feedback" style="display: block">
                                             {{ $message }}
@@ -65,6 +65,7 @@
                                         <label>PASSWORD</label>
                                         <input type="password" name="password" value="{{ old('password') }}" placeholder="Masukkan Password"
                                             class="form-control @error('password') is-invalid @enderror" required>
+                                        <span id="password-error" class="invalid-feedback" role="alert"></span>
                                         @error('password')
                                         <div class="invalid-feedback" style="display: block">
                                             {{ $message }}
@@ -76,6 +77,7 @@
                                         <label>KONFIRMASI PASSWORD</label>
                                         <input type="password" name="password_confirmation" value="{{ old('password_confirmation') }}"
                                             placeholder="Masukkan Konfirmasi Password" class="form-control" required>
+                                        <span id="confirm-password-error" class="invalid-feedback" role="alert"></span>
                                     </div>
                                 
                                     <div class="form-group">
@@ -113,6 +115,56 @@
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    <!-- Custom Validation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.querySelector('form');
+
+            form.addEventListener('submit', function (event) {
+                var name = document.querySelector('input[name="name"]').value;
+                var email = document.querySelector('input[name="email"]').value;
+                var password = document.querySelector('input[name="password"]').value;
+                var confirmPassword = document.querySelector('input[name="password_confirmation"]').value;
+
+                var nameError = document.getElementById('name-error');
+                var emailError = document.getElementById('email-error');
+                var passwordError = document.getElementById('password-error');
+                var confirmPasswordError = document.getElementById('confirm-password-error');
+
+                if (!name) {
+                    event.preventDefault();
+                    nameError.textContent = 'Pelase fill out this field';
+                } else {
+                    nameError.textContent = '';
+                }
+
+                if (!email) {
+                    event.preventDefault();
+                    emailError.textContent = 'Pelase fill out this field';
+                } else if (!email.includes('@')) {
+                    event.preventDefault();
+                    emailError.textContent = 'Please include an "@" in the email address. "a" is missing an "@". ';
+                } else {
+                    emailError.textContent = '';
+                }
+
+                if (!password) {
+                    event.preventDefault();
+                    passwordError.textContent = 'Pelase fill out this field';
+                } else {
+                    passwordError.textContent = '';
+                }
+
+                if (!confirmPassword) {
+                    event.preventDefault();
+                    confirmPasswordError.textContent = 'Pelase fill out this field';
+                } else {
+                    confirmPasswordError.textContent = '';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

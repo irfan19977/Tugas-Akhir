@@ -114,29 +114,9 @@ Route::group(['middleware' => 'auth'], function(){
         'show'
     ]);
 
-    //images
-    Route::resource('images', ImageController::class)->except([
-        'show', 'create', 'edit', 'update'
-    ]);
-
-    //videos
-    Route::resource('videos', VideoController::class)->except([
-        'show', 'create', 'edit', 'update'
-    ]);
-
-    //audios
-    Route::resource('audios', AudioController::class)->except([
-        'show', 'create', 'edit', 'update'
-    ]);
-
-    //documents
-    Route::resource('documents', DocumentController::class)->except([
-        'show', 'create', 'edit', 'update'
-    ]);
-
     //subjects
     Route::resource('subjects', SubjectController::class)->except([
-        'show', 'create', 'edit', 'update'
+        'show'
     ]);
 
     //questions
@@ -166,6 +146,7 @@ Route::group(['middleware' => 'auth'], function(){
     //exams
     
     Route::resource('exams', ExamController::class); 
+    Route::get('hasil', [ExamController::class, 'hasil'])->name('exams.hasil');
     Route::get('/exams/result/{score}/{user_id}/{exam_id}', [ExamController::class, 'result'])->name('exams.result');
     Route::get('/exams/start/{id}', [ExamController::class, 'start'])->name('exams.start');
     Route::get('exams/student/{id}', [ExamController::class, 'student'])->name('exams.student');

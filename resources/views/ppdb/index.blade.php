@@ -4,7 +4,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>PPDB</h1>
+            <h1>Penerimaan Peserta Didik Baru</h1>
         </div>
 
         <div class="section-body">
@@ -276,11 +276,11 @@
             @can('ppdb.showadmin')
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-pencil-alt"></i> Pendaftaran Peserta Didik Baru</h4>
+                    <h4><i class="fas fa-pencil-alt"></i> Daftar Peserta Didik Baru</h4>
                     <h4>|</h4>
                     <h4>
-                        <i class="fa fa-print"></i>
-                        <a href="{{ url('ppdb/export/excel') }}"> <strong style="float: right;"> Export</strong></a>
+                        
+                        <a href="{{ url('ppdb/export/excel') }}"> <strong style="float: right;"><i class="fa fa-print"> Cetak</i> </strong></a>
                     </h4>
                 </div>
                 <div class="card-body">

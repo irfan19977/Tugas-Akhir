@@ -2,13 +2,13 @@
    
   @if(isset($selectedQuestion))
     <div class="form-group">
-      <label>PILIH PERTANYAAN</label>
+      <label>PILIH SOAL</label>
       <table id="table_id" class="table table-bordered table-hover">
         <thead>
         <tr>
           <th>Hapus</th>
           <th>Judul</th>
-          <th>Detail Pertanyaan</th>
+          <th>Detail Soal</th>
           <th>Dipilih</th>
         </tr>
         </thead>
@@ -33,7 +33,7 @@
   @endif
     <div class="card">
         <div class="card-header">
-            <h3>Tambah Pertanyaan</h3>
+            <h3>Tambah Soal</h3>
         </div>
         <div class="card-body">
           {{-- @foreach ($selectedQuestion as $item)
@@ -44,14 +44,14 @@
                         <input type="text" class="form-control" name="p" wire:model="p"
                                 placeholder="cari berdasarkan judul">
                         <input type="text" class="form-control" name="q" wire:model="q"
-                               placeholder="cari berdasarkan detail pertanyaan">
+                               placeholder="cari berdasarkan detail soal">
                     </div>
           <table id="table_id" class="table table-bordered table-hover">
             <thead>
             <tr>
               <th>Pilih</th>
               <th>Judul</th>
-              <th>Detail Pertanyaan</th>
+              <th>Detail Soal</th>
             </tr>
             </thead>
             <tbody>

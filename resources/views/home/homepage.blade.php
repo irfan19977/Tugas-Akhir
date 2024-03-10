@@ -60,10 +60,10 @@
           <div class="col-md-4">
             <div class="step">
               <span class="number">03</span>
-              <h3>Manual Book</h3>
+              <h3>Buku Petunjuk</h3>
               <p>
-                Berikut merupakan manual book website SMK Wiyata Mandala</p>
-              <p><a href="{{ asset('hekel/assets/manualbook.pdf') }}" class="btn btn-primary">Download Manual Book</a></p>
+                Berikut merupakan buku petunjuk website SMK Wiyata Mandala</p>
+              <p><a href="{{ asset('hekel/assets/manualbook.pdf') }}" class="btn btn-primary">Download Buku Petunjuk</a></p>
             </div>
           </div>
         </div>

@@ -39,31 +39,27 @@
                                     novalidate="">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                            placeholder="Masukkan Alamat Email" value="{{ old('email') }}" tabindex="1"
-                                            required autofocus>
+                                        <label>EMAIL</label>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Masukkan Alamat Email" value="{{ old('email') }}" tabindex="1" required autofocus>
+                                        <span id="email-error" class="invalid-feedback" role="alert"></span>
                                         @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="invalid-feedback" >
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
-
+                                    
                                     <div class="form-group">
-                                        <div class="d-block">
-                                            <label for="password"
-                                                class="control-label @error('password') is-invalid @enderror">Password</label>
-                                        </div>
-                                        <input id="password" type="password" class="form-control" name="password"
-                                            placeholder="Masukkan Password" tabindex="2" required>
+                                        <label>PASSWORD</label>
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Masukkan Password" tabindex="2" required>
+                                        <span id="password-error" class="invalid-feedback" role="alert"></span>
                                         @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
+                                    
 
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox">
@@ -108,6 +104,38 @@
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.querySelector('form');
+    
+            form.addEventListener('submit', function (event) {
+                var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            var emailError = document.getElementById('email-error');
+            var passwordError = document.getElementById('password-error');
+
+            if (!email) {
+                event.preventDefault();
+                emailError.textContent = 'Pelase fill out this field';
+            } else if (!email.includes('@')) {
+                event.preventDefault();
+                emailError.textContent = 'Please include an "@" in the email address. "a" is missing an "@". ';
+            } else {
+                emailError.textContent = '';
+            }
+
+    
+                if (!password) {
+                    event.preventDefault();
+                    passwordError.textContent = 'Pelase fill out this field';
+                } else {
+                    passwordError.textContent = '';
+                }
+            });
+        });
+    </script>
+    
 </body>
 
 </html>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class SubjectController extends Controller
 {
@@ -44,7 +46,8 @@ class SubjectController extends Controller
         ]);
         
         $subject = subject::create([
-            'name'     => $request->input('name')
+            'name'     => $request->input('name'),
+            'slug'    => Str::slug($request->input('name')),
         ]);
 
         if($subject){
@@ -55,6 +58,34 @@ class SubjectController extends Controller
             return redirect()->route('subjects.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
+
+    public function edit($slug) { 
+        $subject = Subject::where('slug', $slug)->firstOrFail();
+        return view('subjects.edit', compact('subject'));
+    }
+
+    public function update(Request $request, $slug)
+    {
+        $subject = Subject::where('slug', $slug)->firstOrFail();
+
+        $this->validate($request, [
+            'name'   => 'required'
+        ]);
+
+        $subject->update([
+            'name'   => $request->input('name'),
+            'slug'    => Str::slug($request->input('name')),
+        ]);
+
+        if($subject){
+            //redirect dengan pesan sukses
+            return redirect()->route('subjects.index')->with(['success' => 'Data Berhasil Diperbarui!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('subjects.index')->with(['error' => 'Data Gagal Diperbarui!']);
+        }
+    }
+
 
     /**
      * Remove the specified resource from storage.

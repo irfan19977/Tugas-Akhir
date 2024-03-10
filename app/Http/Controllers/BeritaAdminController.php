@@ -23,7 +23,7 @@ class BeritaAdminController extends Controller
     {
         $beritas = Berita::latest()->when(request()->q, function($beritas) {
             $beritas = $beritas->where('judul', 'like', '%'. request()->q . '%');
-        })->paginate(10);
+        })->paginate(3);
 
         $convert = Berita::pluck('isi')->first();
 

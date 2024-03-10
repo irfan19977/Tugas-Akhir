@@ -1,5 +1,5 @@
 <table class="table table-bordered">
-    <thead>aaaaaa kasihan aaaa
+    <thead>
         <tr>
             <th scope="col" style="text-align: center;width: 6%">NO.</th>
             <th scope="col">NAMA</th>
