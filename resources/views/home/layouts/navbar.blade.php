@@ -10,7 +10,7 @@
           <li><a href="{{ route('asper') }}">Asisten Keperawatan</a></li>
         </ul>
       </li>
-      <li><a class="{{ Request::is('eskul') ? 'active' : ''}}" href="{{ route('eskul') }}">Ekstrakulikuler</a></li>
+      <li><a class="{{ Request::is('eskul') ? 'active' : ''}}" href="{{ route('eskul') }}">Ekstrakurikuler</a></li>
       <li><a class="{{ Request::is('berita') ? 'active' : ''}}" href="{{ route('berita') }}">Berita</a></li>      
       <li><a class="{{ Request::is('contact') ? 'active' : ''}}" href="{{ route('contact') }}">Contact Us</a></li>
       <li><a href="{{ route('login') }}">Login</a></li>

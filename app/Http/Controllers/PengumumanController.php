@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PengumumanCreated;
+use App\Mail\PengumumanUpdated;
 use App\Models\Pengumuman;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class PengumumanController extends Controller
@@ -38,6 +42,15 @@ class PengumumanController extends Controller
             'caption'   => $request->input('caption')
         ]);
 
+        // Ambil semua email pengguna
+        $emails = User::pluck('email')->toArray();
+
+        // Kirim email notifikasi kepada semua pengguna
+        foreach ($emails as $email) 
+        {
+            Mail::to($email)->send(new PengumumanCreated($pengumumans));
+        }
+        
         if($pengumumans){
             //redirect dengan pesan sukses
             return redirect()->route('pengumuman.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -55,20 +68,35 @@ class PengumumanController extends Controller
     // app/Http/Controllers/PengumumanController.php
 public function update(Request $request, $slug)
 {
-    $pengumuman = Pengumuman::where('slug', $slug)->firstOrFail();
+    $pengumumans = Pengumuman::where('slug', $slug)->firstOrFail();
 
     $this->validate($request, [
         'title'   => 'required',
         'caption' => 'required'
     ]);
 
-    $pengumuman->update([
+    $pengumumans->update([
         'title'   => $request->input('title'),
         'slug'    => Str::slug($request->input('title')),
         'caption' => $request->input('caption')
     ]);
 
-    return redirect()->route('pengumuman.index')->with(['success' => 'Data Berhasil Diperbarui!']);
+    // Ambil semua email pengguna
+    $emails = User::pluck('email')->toArray();
+
+    // Kirim email notifikasi kepada semua pengguna
+    foreach ($emails as $email) 
+    {
+        Mail::to($email)->send(new PengumumanUpdated($pengumumans));
+    }
+
+    if($pengumumans){
+        //redirect dengan pesan sukses
+        return redirect()->route('pengumuman.index')->with(['success' => 'Data Berhasil Diperbarui!']);
+    }else{
+        //redirect dengan pesan error
+        return redirect()->route('pengumuman.index')->with(['error' => 'Data Gagal Diperbarui!']);
+    }
 }
 
 

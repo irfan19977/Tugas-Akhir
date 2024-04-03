@@ -44,7 +44,7 @@
                         </div>
 
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
-                            UPDATE</button>
+                            SIMPAN</button>
                         <button class="btn btn-warning btn-back" type="back"><i class="fa fa-redo"></i> KEMBALI</button>
 
                     </form>

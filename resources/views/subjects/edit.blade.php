@@ -32,10 +32,8 @@
                                 @enderror
                             </div>
 
-                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-check-circle"></i> KIRIM</button>
-                            <button class="btn btn-warning btn-back" type="back"><i class="fa fa-redo"></i> KEMBALI</button>
-
-
+                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i> SIMPAN</button>
+                            <button class="btn btn-warning btn-back" type="button"><i class="fa fa-redo"></i> KEMBALI</button>
                         </form>
 
                     </div>
@@ -45,5 +43,11 @@
 
     </section>
 </div>
+
+<script>
+    document.querySelector('.btn-back').addEventListener('click', function() {
+        window.history.back();
+    });
+</script>
 
 @stop

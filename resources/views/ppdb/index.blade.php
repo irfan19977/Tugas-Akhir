@@ -263,8 +263,8 @@
                             @enderror
                         </div>
 
-                        <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-upload"></i>
-                            KIRIM</button>
+                        <button class="btn btn-primary mr-1 btn-submit" type="submit"><<i class="fa fa-paper-plane"></i>
+                            SIMPAN</button>
                         <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
 
 
@@ -302,7 +302,7 @@
                     </form>
 
                     <div class="table-responsive">
-                        @include('ppdb.table', $ppdbs)
+                        @include('ppdb.table', $ppdbs )
                         <div style="text-align: center">
                             {{$ppdbs->links("vendor.pagination.bootstrap-4")}}
                         </div>

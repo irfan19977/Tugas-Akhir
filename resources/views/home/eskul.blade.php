@@ -22,8 +22,8 @@
             <div class="col-12">
                 <div class="row justify-content-center">
                     <div class="col-md-9 text-center hero-text">
-                        <h1 data-aos="fade-up" data-aos-delay="">Ekstrakulikuler</h1>
-                        <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Berikut merupakan beberapa ekstrakulikuler
+                        <h1 data-aos="fade-up" data-aos-delay="">Ekstrakurikuler</h1>
+                        <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Berikut merupakan beberapa ekstrakurikuler
                             yang ada di SMK Wiyata Mandala :</p>
                     </div>
                 </div>

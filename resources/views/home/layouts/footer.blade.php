@@ -8,27 +8,27 @@
             <a href="tel:0835328631"><span class="bi bi-telephone"></span></a>
             <a href="https://www.instagram.com/smkwiyatamandala.official?igsh=enlwZjBodGc1ZW84"><span class="bi bi-instagram"></span></a>
             <a href="https://www.tiktok.com/@smkwimakepung.official?_t=8jVk1MRtJ9G&_r=1"><span class="bi bi-tiktok"></span></a>
-            <a href="#"><span class="bi bi-youtube"></span></a>
+            <a href="https://www.youtube.com/@smkwiyatamandalakepungoffi1239"><span class="bi bi-youtube"></span></a>
           </p>
         </div>
         <div class="col-md-7 ms-auto">
           <div class="row site-section pt-0">
             <div class="col-md-4 mb-4 mb-md-0">
-              <h3>Navigation</h3>
+              <h3>Navigasi</h3>
               <ul class="list-unstyled">
-                <li><a href="#">Pendaftaran</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Berita</a></li>
-                <li><a href="#">Contact-us</a></li>
+                <li><a href="{{ route('pendaftaran') }}">Pendaftaran</a></li>
+                <li><a href="{{ route('profile') }}">Profile</a></li>
+                <li><a href="{{ route('berita') }}">Berita</a></li>
+                <li><a href="{{ route('contact') }}">Contact-us</a></li>
               </ul>
             </div>
             <div class="col-md-4 mb-4 mb-md-0">
               <h3>Jurusan</h3>
               <ul class="list-unstyled">
-                <li><a href="#">Akuntansi</a></li>
-                <li><a href="#">TKJ</a></li>
-                <li><a href="#">DKV</a></li>
-                <li><a href="#">Asper</a></li>
+                <li><a href="{{ route('ak') }}">Akuntansi</a></li>
+                <li><a href="{{ route('tkj') }}">TKJ</a></li>
+                <li><a href="{{ route('dkv') }}">DKV</a></li>
+                <li><a href="{{ route('asper') }}">Asper</a></li>
               </ul>
             </div>
             <div class="col-md-4 mb-4 mb-md-0">

@@ -42,7 +42,7 @@
                                 @enderror
                             </div>
 
-                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-upload"></i> UPDATE</button>
+                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i> SIMPAN</button>
                             <a href="javascript:history.back()" class="btn btn-warning btn-back">
                                 <i class="fa fa-redo"></i> KEMBALI
                             </a>                            

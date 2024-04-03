@@ -51,7 +51,7 @@
                     </div>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Simpan</button>
             </form>
         </div>
     </div>

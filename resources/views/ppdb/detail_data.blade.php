@@ -267,7 +267,7 @@
 
                         @can('ppdb.edit')
                         <a href="{{ route('ppdb.edit', $existingData->id) }}" class="btn btn-sm btn-primary">
-                        <i class="fa fa-pencil-alt">Edit</i>
+                        <i class="fa fa-pencil-alt"> Edit</i>
                         </a>
                         @endcan
 
