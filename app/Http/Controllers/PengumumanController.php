@@ -35,11 +35,20 @@ class PengumumanController extends Controller
             'caption'   => 'required'
         ]);
 
+        // Upload gambar jika ada
+        if ($request->hasFile('file_id')) {
+            $file = $request->file('file_id');
+            $file->storeAs('public/documents', $file->hashName());
+            $fileName = $file->hashName();
+        } else {
+            $fileName = null;
+        }
 
         $pengumumans = Pengumuman::create([
             'title'     => $request->input('title'),
             'slug' => Str::slug($request->input('title')),
-            'caption'   => $request->input('caption')
+            'caption'   => $request->input('caption'),
+            'file_id' => $fileName
         ]);
 
         // Ambil semua email pengguna
@@ -78,7 +87,8 @@ public function update(Request $request, $slug)
     $pengumumans->update([
         'title'   => $request->input('title'),
         'slug'    => Str::slug($request->input('title')),
-        'caption' => $request->input('caption')
+        'caption' => $request->input('caption'),
+        'file_id' => $request->input('file_id'),
     ]);
 
     // Ambil semua email pengguna

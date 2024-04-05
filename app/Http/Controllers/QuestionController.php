@@ -203,21 +203,7 @@ class QuestionController extends Controller
             // Jika tidak ada file gambar baru yang diunggah, gunakan gambar yang sudah ada
             $imageName = $question->image_id;
         }
-        // Upload gambar jika ada
-        if ($request->hasFile('image_id')) {
-            $image = $request->file('image_id');
-            $image->storeAs('public/images', $image->hashName());
-            $imageName = $image->hashName();
-            
-            // Hapus gambar lama jika ada
-            if ($question->image_id) {
-                // Hapus gambar lama dari storage
-                Storage::delete('public/images/' . $question->image_id);
-            }
-        } else {
-            // Jika tidak ada file gambar baru yang diunggah, gunakan gambar yang sudah ada
-            $imageName = $question->image_id;
-        }
+        
 
         $question = Question::findOrFail($question->id);
 
@@ -267,5 +253,12 @@ class QuestionController extends Controller
                 'status' => 'error'
             ]);
         }
+    }
+
+    public function deleteAll(Request $request)
+    {
+        $ids = $request->ids;
+        Question::whereIn('id', $ids)->delete();
+        return response()->json(["success"=>"Berhasil"]);
     }
 }

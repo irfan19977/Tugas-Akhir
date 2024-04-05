@@ -42,6 +42,17 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label>Unggah Video</label>
+                                <input type="file" class="form-control-file @error('file_id') is-invalid @enderror"
+                                    name="file_id" id="file_id">{{ $pengumumans->file_id }}
+                                @error('file_id')
+                                <div class="invalid-feedback" style="display:  block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
                             <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i> SIMPAN</button>
                             <a href="javascript:history.back()" class="btn btn-warning btn-back">
                                 <i class="fa fa-redo"></i> KEMBALI

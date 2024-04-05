@@ -4,7 +4,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Judul</h1>
+            <h1>Kategori Soal</h1>
         </div>
 
         <div class="section-body">
@@ -12,7 +12,7 @@
             @can('subjects.create')
                 <div class="card">
                     <div class="card-header">
-                        <h4><i class="fas fa-atlas"></i> Edit Judul</h4>
+                        <h4><i class="fas fa-atlas"></i> Edit Kategori Soal</h4>
                     </div>
 
                     <div class="card-body">

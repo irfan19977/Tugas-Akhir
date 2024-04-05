@@ -40,6 +40,19 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label>Unggah File</label>
+                                <input type="file" class="form-control-file @error('file_id') is-invalid @enderror" name="file_id">
+                                @error('file_id')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="preview-audio" style="display: none;">
+                                <audio controls id="audio-preview"></audio>
+                            </div>
+
                             <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i> SIMPAN</button>
                             <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
 
@@ -75,6 +88,7 @@
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                 <th scope="col">JUDUL</th>
                                 <th scope="col">DESKRIPSI</th>
+                                <th scope="col">Lampiran</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
                             </thead>
@@ -84,6 +98,13 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $pengumuman->title }}</td>
                                     <td>{!! Str::limit(strip_tags($pengumuman->caption), 150) !!}</td>
+                                    <td> @if ($pengumuman->file_id)
+                                        <a href="{{ Storage::url('public/documents/'.$pengumuman->file_id) }}" target="_blank" rel="noopener noreferrer">Buka File</a>
+                                        @else
+                                            TIDAK ADA LAMPIRAN
+                                        @endif
+                                        
+                                    </td>
                                     <td class="text-center">
                                         @can('pengumuman.edit')
                                             <a href="{{ route('pengumuman.edit', $pengumuman->slug) }}" class="btn btn-sm btn-primary">

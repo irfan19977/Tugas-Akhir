@@ -123,6 +123,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('questions', QuestionController::class)->except([
         'show'
     ]);
+    Route::delete('/selected-question', [QuestionController::class, 'deleteAll'])->name('question.delete');
 
     //pengumuman
     Route::resource('pengumuman', PengumumanController::class)->except([

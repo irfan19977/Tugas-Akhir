@@ -39,9 +39,14 @@
                 <ul class="navbar-nav navbar-right">
                     @can('message.show')
                         <li class="dropdown dropdown-list-toggle">
-                            <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep" ">
-                                <i id="message-icon" class="far fa-envelope"></i>
+                            <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle">
+                                <i id="message-icon" class="far fa-envelope" style="position: relative;">
+                                    <span style="position: absolute; top: -10px; left: 20px; ">
+                                        <small>{{ App\Models\Contact::where('status', 'belum dibaca')->count() ?? '0' }}</small>
+                                    </span>
+                                </i>
                             </a>
+                            
                             <div class="dropdown-menu dropdown-list dropdown-menu-right">
                                 <div class="dropdown-header">Messages
                                     <div class="float-right">
@@ -116,10 +121,10 @@
                                 <span>Pendaftaran</span></a></li>
                         @endcan
 
-                        @can('exams.index')
-                        <li class="{{ Request::is('exams') ? 'active' : ''}}"><a class="nav-link"
-                                href="{{  route('exams.index') }}"><i class="fas fa-book-open"></i>
-                                <span>Ujian</span></a></li>
+                        @can('subjects.index')
+                        <li class="{{ Request::is('subjects') ? 'active' : ''}}"><a class="nav-link"
+                                href="{{ route('subjects.index') }}"><i class="fa fa-tags"></i>
+                                <span>Kategori Soal</span></a></li>
                         @endcan
 
                         @can('questions.index')
@@ -128,10 +133,10 @@
                         </li>
                         @endcan
 
-                        @can('subjects.index')
-                        <li class="{{ Request::is('subjects') ? 'active' : ''}}"><a class="nav-link"
-                                href="{{ route('subjects.index') }}"><i class="fa fa-tags"></i>
-                                <span>Judul</span></a></li>
+                        @can('exams.index')
+                        <li class="{{ Request::is('exams') ? 'active' : ''}}"><a class="nav-link"
+                                href="{{  route('exams.index') }}"><i class="fas fa-book-open"></i>
+                                <span>Ujian</span></a></li>
                         @endcan
 
                         @can('beritaadmin.index')

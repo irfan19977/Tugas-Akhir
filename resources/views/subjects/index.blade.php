@@ -4,7 +4,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Judul</h1>
+            <h1>Kategori Soal</h1>
         </div>
 
         <div class="section-body">
@@ -12,7 +12,7 @@
             @can('subjects.create')
                 <div class="card">
                     <div class="card-header">
-                        <h4><i class="fas fa-atlas"></i> Tambah Judul</h4>
+                        <h4><i class="fas fa-atlas"></i> Tambah Kategori Soal</h4>
                     </div>
 
                     <div class="card-body">
@@ -22,7 +22,7 @@
 
                             <div class="form-group">
                                 <label>NAMA</label>
-                                <input type="text" name="name" value="{{ old('name') }}" placeholder="Masukkan Nama Ujian" class="form-control @error('name') is-invalid @enderror">
+                                <input type="text" name="name" value="{{ old('name') }}" placeholder="Masukkan Nama Kategori" class="form-control @error('name') is-invalid @enderror">
 
                                 @error('name')
                                 <div class="invalid-feedback" style="display: block">
@@ -43,7 +43,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-atlas"></i> Judul</h4>
+                    <h4><i class="fas fa-atlas"></i> Kategori Soal</h4>
                 </div>
 
                 <div class="card-body">

@@ -18,6 +18,7 @@ class CreatePengumumanTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('caption');
+            $table->string('file_id');
             $table->timestamps();
         });
     }
