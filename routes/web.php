@@ -124,7 +124,7 @@ Route::group(['middleware' => 'auth'], function(){
         'show'
     ]);
     Route::delete('/selected-question', [QuestionController::class, 'deleteAll'])->name('question.delete');
-
+    Route::post('/questions/import', [QuestionController::class, 'import_excel'])->name('questions.import');
     //pengumuman
     Route::resource('pengumuman', PengumumanController::class)->except([
         'show'

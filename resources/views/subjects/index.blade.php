@@ -64,6 +64,7 @@
                             <thead>
                             <tr>
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
+                                <th scope="col">ID</th>
                                 <th scope="col">NAMA</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
@@ -72,6 +73,7 @@
                             @foreach ($subjects as $no => $subject)
                                 <tr>
                                     <th scope="row" style="text-align: center">{{ ++$no + ($subjects->currentPage()-1) * $subjects->perPage() }}</th>
+                                    <td>{{ $subject->id }}</td>
                                     <td>{{ $subject->name }}</td>
                                     <td class="text-center">
                                         <a href="{{ route('subjects.edit', $subject->slug) }}" class="btn btn-sm btn-primary">

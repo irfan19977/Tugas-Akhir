@@ -12,9 +12,34 @@
             <div class="card">
                 <div class="card-header">
                     <h4><i class="fas fa-question"></i> DAFTAR SOAL</h4>
+                    <h4>|</h4>
+                    
+                        <a href="#" id="toggleImport" onclick="toggleImport()" style="float: right;"><h4><i class="fa fa-print"> IMPORT</i></h4> </a>
+                    
                 </div>
 
                 <div class="card-body">
+
+                    <div class="card-body" id="importSection" style="display: none;"> <!-- tambahkan id dan style untuk menampilkan atau menyembunyikan bagian import -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4><i class="fas fa-question"></i> Import Soal</h4>
+                            </div>
+            
+                            <div class="card-body">
+                                <form action="{{ route('questions.import') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="file">Pilih File</label>
+                                        <input type="file" class="form-control-file" id="file" name="file">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Unggah</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+
                     <form action="{{ route('questions.index') }}" method="GET">
                         <div class="form-group">
                             <div class="input-group mb-3">
@@ -240,6 +265,15 @@
     });
 </script>
 
-
+<script>
+    function toggleImport() {
+        var importSection = document.getElementById("importSection");
+        if (importSection.style.display === "none") {
+            importSection.style.display = "block";
+        } else {
+            importSection.style.display = "none";
+        }
+    }
+</script>
 
 @stop

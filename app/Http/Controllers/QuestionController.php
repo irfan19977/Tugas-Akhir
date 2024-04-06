@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\QuestionsImport;
 use App\Models\Audio;
 use App\Models\Image;
 use App\Models\Video;
@@ -9,8 +10,10 @@ use App\Models\Subject;
 use App\Models\Document;
 use App\Models\Question;
 use App\Models\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class QuestionController extends Controller
 {
@@ -261,4 +264,28 @@ class QuestionController extends Controller
         Question::whereIn('id', $ids)->delete();
         return response()->json(["success"=>"Berhasil"]);
     }
+
+    public function import_excel(Request $request)
+{
+    // validasi
+    $this->validate($request, [
+        'file' => 'required|mimes:csv,xls,xlsx'
+    ]);
+
+    // menangkap file excel
+    $file = $request->file('file');
+
+    // membuat nama file unik
+    $nama_file = rand().$file->getClientOriginalName();
+
+    // upload ke folder file_questions di dalam folder public
+    $file->move('file_questions', $nama_file);
+
+    // import data
+    Excel::import(new QuestionsImport, public_path('/file_questions/'.$nama_file));
+
+    // alihkan halaman kembali dengan pesan sukses
+    return redirect()->route('questions.index')->with(['success' => 'Data berhasil diimpor!']);
+}
+
 }
