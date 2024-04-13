@@ -30,6 +30,21 @@
                 </div>
 
                 <div class="form-group">
+                    <label>KATEGORI BERITA</label>
+                    <select class="form-control select-subject @error('kategori_id') is-invalid @enderror" name="kategori_id" required>
+                        <option value="">- PILIH KATEGORI -</option>
+                        @foreach ($categories as $kategori)
+                            <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('kategori_id')
+                    <div class="invalid-feedback" style="display: block">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label>Isi Berita</label>
                     <textarea name="isi" class="form-control @error('isi') is-invalid @enderror">{{ old('isi') }}</textarea>
                     @error('isi')
@@ -40,7 +55,7 @@
                 </div>
                 <div class="form-group">
                     <label>Upload Sampul Baru</label>
-                    <input type="file" name="sampul" class="form-control">
+                    <input type="file" name="sampul" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Keterangan Sampul</label>
@@ -82,6 +97,7 @@
                             <tr>
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                 <th scope="col">Judul</th>
+                                <th scope="col">Kategori</th>
                                 <th scope="col">Foto Sampul</th>
                                 <th scope="col">Keterangan Sampul</th>
                                 <th scope="col">Isi Berita</th>
@@ -93,6 +109,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $berita->judul }}</td>
+                                    <td>{{ $berita->kategori->name }}</td>
                                     <td>
                                         @if($berita->sampul)
                                             <img src="{{ asset('storage/sampul/' . basename($berita->sampul)) }}" alt="{{ $berita->judul }} Sampul" style="max-width: 100px;">

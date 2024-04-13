@@ -17,7 +17,7 @@
 
                     <div class="card-body">
 
-                        <form action="{{ route('pengumuman.update', ['pengumuman' => $pengumumans->slug]) }}" method="POST">
+                        <form action="{{ route('pengumuman.update', ['pengumuman' => $pengumumans->slug]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -43,15 +43,23 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Unggah Video</label>
-                                <input type="file" class="form-control-file @error('file_id') is-invalid @enderror"
-                                    name="file_id" id="file_id">{{ $pengumumans->file_id }}
+                                <label for="file_id">Unggah File PDF</label>
+                                <input type="file" class="form-control-file @error('file_id') is-invalid @enderror" name="file_id" id="file_id">
                                 @error('file_id')
-                                <div class="invalid-feedback" style="display:  block">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
+                            
+                            @if($pengumumans->file_id)
+                                <div class="form-group">
+                                    <label>File PDF yang Telah Diunggah</label>
+                                    <a href="{{ asset('storage/documents/' . $pengumumans->file_id) }}" target="_blank">Unduh File PDF</a>
+                                </div>
+                            @endif
+                            
+                            
 
                             <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i> SIMPAN</button>
                             <a href="javascript:history.back()" class="btn btn-warning btn-back">

@@ -8,6 +8,7 @@ use App\Models\Pengumuman;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PengumumanController extends Controller
@@ -32,7 +33,8 @@ class PengumumanController extends Controller
     {
         $this->validate($request, [
             'title'     => 'required',
-            'caption'   => 'required'
+            'caption'   => 'required',
+            'file_id' => 'nullable|mimes:pdf'
         ]);
 
         // Upload gambar jika ada
@@ -81,15 +83,31 @@ public function update(Request $request, $slug)
 
     $this->validate($request, [
         'title'   => 'required',
-        'caption' => 'required'
+        'caption' => 'required',
+        'file_id' => 'nullable|mimes:pdf'
     ]);
 
-    $pengumumans->update([
-        'title'   => $request->input('title'),
-        'slug'    => Str::slug($request->input('title')),
-        'caption' => $request->input('caption'),
-        'file_id' => $request->input('file_id'),
-    ]);
+   // Simpan file baru jika ada
+   if ($request->hasFile('file_id')) {
+    $file = $request->file('file_id');
+    $fileName = $file->hashName();
+    $file->storeAs('public/documents', $fileName);
+
+    // Hapus file lama jika ada
+    if ($pengumumans->file_id) {
+        Storage::delete('public/documents/' . $pengumumans->file_id);
+    }
+} else {
+    // Jika tidak ada file baru diunggah, gunakan file yang lama
+    $fileName = $pengumumans->file_id;
+}
+
+$pengumumans->update([
+    'title'   => $request->input('title'),
+    'slug'    => Str::slug($request->input('title')),
+    'caption' => $request->input('caption'),
+    'file_id' => $fileName,
+]);
 
     // Ambil semua email pengguna
     $emails = User::pluck('email')->toArray();

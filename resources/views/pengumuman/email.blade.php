@@ -50,8 +50,7 @@ $bulan = [
     </style>
 </head>
 <body>
-    <h1>Pengumuman SMK Wiyata Mandala</h1>
-    <p>Judul Pengumuman: {{ $pengumuman['title'] }}</p>
+    <h1>{{ $pengumuman['title'] }}</h1>
     <p>Pengumuman baru telah ditambahkan.Silakan cek pengumuman terbaru di website SMK Wiyata Mandala di <a href="http://127.0.0.1:8000/pengumuman">Link Pengumuman</a></p>
 
     <!-- Tanda tangan -->

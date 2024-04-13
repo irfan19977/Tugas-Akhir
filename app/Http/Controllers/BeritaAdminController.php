@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -25,9 +26,10 @@ class BeritaAdminController extends Controller
             $beritas = $beritas->where('judul', 'like', '%'. request()->q . '%');
         })->paginate(3);
 
+        $categories = Kategori::all();
         $convert = Berita::pluck('isi')->first();
 
-        return view('berita.index', compact('beritas', 'convert'));
+        return view('berita.index', compact('beritas', 'convert', 'categories'));
     }
 
 
@@ -51,6 +53,7 @@ class BeritaAdminController extends Controller
 {
     $this->validate($request, [
         'judul' => 'required',
+        'kategori_id' => 'required',
         'sampul' => 'required|mimes:jpg,bmp,png',
         'isi' => 'required'
     ]);
@@ -61,6 +64,7 @@ class BeritaAdminController extends Controller
 
     $berita = Berita::create([
         'judul' => $request->input('judul'),
+        'kategori_id' => $request->input('kategori_id'),
         'slug' => Str::slug($request->input('judul')),
         'sampul' => $sampulPath,
         'keterangan' => $request->input('keterangan'),
@@ -97,8 +101,9 @@ class BeritaAdminController extends Controller
     public function edit($slug)
     {
         $berita = Berita::where('slug', $slug)->firstOrFail();
+        $categories = Kategori::all();
         
-        return view('berita.edit', compact('berita'));
+        return view('berita.edit', compact('berita', 'categories'));
     }
 
     /**
@@ -129,6 +134,7 @@ public function update(Request $request, $slug)
     // Lakukan pembaruan data
     $berita->judul = $request->input('judul');
     $berita->slug = Str::slug($request->input('judul'));
+    $berita->kategori_id = $request->input('kategori_id');   
     $berita->sampul = $sampulPath; // Gunakan path gambar yang baru atau lama
     $berita->keterangan = $request->input('keterangan');
     $berita->isi = $request->input('isi');

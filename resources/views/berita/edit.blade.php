@@ -35,6 +35,21 @@
                         </div>
 
                         <div class="form-group">
+                            <label>KATEGORI BERITA</label>
+                            <select class="form-control select-subject @error('kategori_id') is-invalid @enderror" name="kategori_id" required>
+                                <option value="">- PILIH JUDUL -</option>
+                                @foreach ($categories as $kategori)
+                                    <option value="{{ $kategori->id }}" @if($kategori->id == $berita->kategori_id) selected @endif>{{ $kategori->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('kategori_id')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
                             <label>Isi Berita</label>
                             <textarea name="isi"
                                 class="form-control @error('isi') is-invalid @enderror">{{ $berita->isi }}</textarea>

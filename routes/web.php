@@ -20,6 +20,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DkvController;
 use App\Http\Controllers\EskulController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\pendaftaranController;
 use App\Http\Controllers\PengumumanController;
@@ -62,6 +63,8 @@ Route::get('/asisten-keperawatan', [AsperController::class, 'index'])->name('asp
 Route::get('/eskul', [EskulController::class, 'index'])->name('eskul');
 
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+
+Route::get('/berita/kategori/{slug}', [BeritaController::class, 'beritaByCategory'])->name('berita.by.category');
 
 Route::get('/detail_berita/{slug}', [BeritaController::class, 'detail'])->name('detail_berita');
 
@@ -137,6 +140,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/ppdb/detail_data', [PPDBController::class, 'detail_data'])->name('ppdb.detail_data');
     Route::get('/ppdb/export/excel', [PPDBController::class, 'export_excel']);
 
+    //Kategori Berita
+    Route::resource('kategori', KategoriController::class)->except([
+        'show'
+    ]);
+    
     //Berita
     Route::resource('beritaadmin', BeritaAdminController::class)->except([
         'show'

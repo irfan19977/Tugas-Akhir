@@ -15,6 +15,7 @@ class CreateBeritaTable extends Migration
     {
         Schema::create('berita', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('kategori_id');
             $table->string('judul');
             $table->string('sampul')->nullable(); // Kolom untuk menyimpan path/nama file gambar
             $table->string('slug');
@@ -22,7 +23,8 @@ class CreateBeritaTable extends Migration
             $table->text('isi');
             $table->unsignedBigInteger('user_id'); // Kolom untuk menyimpan ID pengguna yang membuat berita
             $table->timestamps();
-        
+
+            $table->foreign('kategori_id')->references('id')->on('kategori_berita');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

@@ -15,7 +15,7 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('subject_id')->constrained();
+            $table->unsignedBigInteger('subject_id');
             $table->text('detail');
             $table->string('video_id')->nullable();
             $table->string('audio_id')->nullable();
@@ -30,6 +30,8 @@ class CreateQuestionsTable extends Migration
             $table->text('explanation')->nullable();
             $table->string('created_by');
             $table->timestamps();
+
+            $table->foreign('subject_id')->references('id')->on('subjects');
         });
     }
 

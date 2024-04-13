@@ -139,6 +139,12 @@
                                 <span>Ujian</span></a></li>
                         @endcan
 
+                        @can('kategori.index')
+                        <li class="{{ Request::is('kategori') ? 'active' : ''}}"><a class="nav-link"
+                                href="{{ route('kategori.index') }}"><i class="fas fa-newspaper"></i>
+                                <span>Kategori Berita</span></a></li>
+                        @endcan
+
                         @can('beritaadmin.index')
                         <li class="{{ Request::is('beritaadmin') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{ route('beritaadmin.index') }}"><i class="fas fa-newspaper"></i>
