@@ -149,11 +149,11 @@
                             <label>JAWABAN</label>
                             <select name="answer" class="form-control">
                                 <option value="">- PILIH JAWABAN -</option>
-                                <option value="A" {{ old('answer') == 'option_A' ? 'selected' : 'E' }}>A</option>
-                                <option value="B" {{ old('answer') == 'option_B' ? 'selected' : 'D' }}>B</option>
+                                <option value="A" {{ old('answer') == 'option_A' ? 'selected' : 'A' }}>A</option>
+                                <option value="B" {{ old('answer') == 'option_B' ? 'selected' : 'B' }}>B</option>
                                 <option value="C" {{ old('answer') == 'option_C' ? 'selected' : 'C' }}>C</option>
-                                <option value="D" {{ old('answer') == 'option_D' ? 'selected' : 'B' }}>D</option>
-                                <option value="E" {{ old('answer') == 'option_E' ? 'selected' : 'A' }}>E</option>
+                                <option value="D" {{ old('answer') == 'option_D' ? 'selected' : 'D' }}>D</option>
+                                <option value="E" {{ old('answer') == 'option_E' ? 'selected' : 'E' }}>E</option>
                             </select>
                             @error('answer')
                             <div class="invalid-feedback" style="display: block">

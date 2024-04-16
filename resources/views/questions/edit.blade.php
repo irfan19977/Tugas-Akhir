@@ -210,7 +210,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div>                       
 
                         <div class="form-group">
                             <label>PEMBAHASAN</label>
@@ -225,8 +225,7 @@
 
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                             SIMPAN</button>
-                        <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
-
+                            <button class="btn btn-warning btn-back" type="button"><i class="fa fa-redo"></i> KEMBALI</button>
                     </form>
                 </div>
             </div>
@@ -452,5 +451,10 @@
         previewAudio(event);
     });
 
+</script>
+<script>
+    document.querySelector('.btn-back').addEventListener('click', function() {
+        window.history.back();
+    });
 </script>
 @stop

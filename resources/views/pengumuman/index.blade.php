@@ -137,7 +137,10 @@
                         </div>
                         <div class="collapse show" id="mycard-collapse-{{ $pengumuman->id }}">
                             <div class="card-body">
-                                {{ $pengumuman->caption }}
+                                <a href="{{ Storage::url('public/documents/'.$pengumuman->file_id) }}" target="_blank" rel="noopener noreferrer">Buka File</a>
+                                <div>
+                                    {!! nl2br(e($pengumuman->caption)) !!}
+                                </div> 
                             </div>
                             <div class="card-footer">
                                 @if ($pengumuman->created_at != $pengumuman->updated_at)
@@ -149,6 +152,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 @endforeach
 
             @endcan
