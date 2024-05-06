@@ -162,16 +162,6 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
-                            <label>PEMBAHASAN</label>
-                            <textarea name="explanation" cols="30" rows="30" class="form-control" placeholder="Masukkan Pembahasan Soal">{{ old('explanation') }}</textarea>
-                            @error('explanation')
-                            <div class="invalid-feedback" style="display: block">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                             SIMPAN</button>
                         <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>

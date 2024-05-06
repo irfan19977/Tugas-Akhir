@@ -76,8 +76,6 @@
                                 <th scope="col">PILIHAN D</th>
                                 <th scope="col">PILIHAN E</th>
                                 <th scope="col">JAWABAN</th>
-                                <th scope="col">PEMBAHASAN</th>
-                                <th scope="col">DIBUAT OLEH</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
                             </thead>
@@ -106,8 +104,6 @@
                                     <td>{{ $question->option_D }}</td>
                                     <td>{{ $question->option_E }}</td>
                                     <td>{{ $question->answer }}</td>
-                                    <td>{!! Str::limit(strip_tags($question->explanation), 30) !!}</td>
-                                    <td>{{ $user->getName($question->created_by) }}</td>
                                     <td class="text-center">
                                         @can('questions.edit')
                                             <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-primary">

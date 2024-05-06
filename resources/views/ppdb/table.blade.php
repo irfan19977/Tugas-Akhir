@@ -1,26 +1,25 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th scope="col" style="text-align: center;width: 6%">NO.</th>
-            <th scope="col">NAMA</th>
-            <th scope="col">JENIS KELAMIN</th>
-            <th scope="col">TEMPAT LAHIR</th>
-            <th scope="col">TANGGAL LAHIR</th>
-            <th scope="col">AGAMA</th>
-            <th scope="col">ALAMAT</th>
-            <th scope="col">ASAL SEKOLAH</th>
-            <th scope="col">NOMOR WA</th>
-            <th scope="col">NAMA AYAH</th>
-            <th scope="col">NAMA IBU</th>
-            <th scope="col">JUMLAH SAUDARA</th>
-            <th scope="col">RIWAYAT PENYAKIT</th>
-            <th scope="col">HOBI</th>
-            <th scope="col">ORGANISASI</th>
-            <th scope="col">JURUSAN 1</th>
-            <th scope="col">ALASAN JURUSAN 1</th>
-            <th scope="col">JURUSAN 2</th>
-            <th scope="col">ALASAN JURUSAN 2</th>
-            <th scope="col" style="width: 15%;text-align: center">AKSI</th>
+            <th scope="col" style="text-align: center;width: 6%"><strong>NO.</strong></th>
+            <th scope="col"><strong>NAMA</strong></th>
+            <th scope="col"><strong>JENIS KELAMIN</strong></th>
+            <th scope="col"><strong>TEMPAT LAHIR</strong></th>
+            <th scope="col"><strong>TANGGAL LAHIR</strong></th>
+            <th scope="col"><strong>AGAMA</strong></th>
+            <th scope="col"><strong>ALAMAT</strong></th>
+            <th scope="col"><strong>ASAL SEKOLAH</strong></th>
+            <th scope="col"><strong>NOMOR WA</strong></th>
+            <th scope="col"><strong>NAMA AYAH</strong></th>
+            <th scope="col"><strong>NAMA IBU</strong></th>
+            <th scope="col"><strong>JUMLAH SAUDARA</strong></th>
+            <th scope="col"><strong>RIWAYAT PENYAKIT</strong></th>
+            <th scope="col"><strong>HOBI</strong></th>
+            <th scope="col"><strong>ORGANISASI</strong></th>
+            <th scope="col"><strong>JURUSAN 1</strong></th>
+            <th scope="col"><strong>ALASAN JURUSAN 1</strong></th>
+            <th scope="col"><strong>JURUSAN 2</strong></th>
+            <th scope="col"><strong>ALASAN JURUSAN 2</strong></th>
         </tr>
     </thead>
     <tbody>
@@ -45,19 +44,6 @@
         <td>{{ $ppdb->alasan_1 }}</td>
         <td>{{ $ppdb->jrs_cd }}</td>
         <td>{{ $ppdb->alasan_cd }}</td>
-        <td class="text-center">
-            @can('ppdb.edit')
-            <a href="{{ route('ppdb.edit', $ppdb->id) }}" class="btn btn-sm btn-primary">
-                <i class="fa fa-pencil-alt"></i>
-            </a>
-            @endcan
-            @can('ppdb.delete')
-            <button onClick="Delete(this.id)" class="btn btn-sm btn-danger"
-                id="{{ $ppdb->id }}">
-                <i class="fa fa-trash"></i>
-            </button>
-            @endcan
-        </td>
         </tr>
         @endforeach
     </tbody>

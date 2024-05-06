@@ -41,6 +41,11 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/storage', function() {
+      $targetFolder = storage_path('app/public');
+      $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
+      symlink($targetFolder,$linkFolder);
+    });
 
 Route::get('/', function () {
     return view('home.homepage');
@@ -155,7 +160,9 @@ Route::group(['middleware' => 'auth'], function(){
     //exams
     
     Route::resource('exams', ExamController::class); 
-    Route::get('hasil', [ExamController::class, 'hasil'])->name('exams.hasil');
+    Route::get('hasil/{id}', [ExamController::class, 'hasil'])->name('exams.hasil');
+    Route::get('hasilSemua', [ExamController::class, 'hasilSemua'])->name('exams.hasilSemua');
+    Route::get('cetak-pdf', [ExamController::class, 'cetakPDF'])->name('exams.cetakPDF');
     Route::get('/exams/result/{score}/{user_id}/{exam_id}', [ExamController::class, 'result'])->name('exams.result');
     Route::get('/exams/start/{id}', [ExamController::class, 'start'])->name('exams.start');
     Route::get('exams/student/{id}', [ExamController::class, 'student'])->name('exams.student');

@@ -40,12 +40,7 @@
             wire:click="answers({{ $question['id'] }}, 'E')"><p class="text-left"><b> E. {{ $question['option_E'] }} </b><i class="{{ 'E' == $question['answer'] ? 'fas fa-check' : ''  }}"></i></p></button>
         </div>
         <br><br>
-        <i>Pembahasan</i> 
-        <br>
-       
-        <div class="alert alert-success" role="alert">
-            {{ $question['explanation'] }}
-        </div>
+        
         
     </div>
     @endforeach

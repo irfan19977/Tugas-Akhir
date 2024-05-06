@@ -5,14 +5,10 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Exam;
 use App\Models\User;
-use App\Models\Audio;
-use App\Models\Image;
-use App\Models\Video;
-use App\Models\Subject;
-use App\Models\Document;
-use App\Models\Question;
+use App\Models\ExamUser;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 
@@ -229,16 +225,64 @@ class ExamController extends Controller
         return view('exams.review', compact('userId', 'examId'));
     }
 
-    public function hasil()
+    public function hasil($id)
     {
-            $exams = Exam::latest()->when(request()->q, function($exams) {
-                $exams = $exams->where('name', 'like', '%'. request()->q . '%');
-            })->paginate(10);
-        
-        
-        $user = new User();
-        return view('exams.hasil', compact('exams', 'user'));
+        $exam = Exam::findOrFail($id);
+        $results = $exam->users()->withPivot('history_answer', 'score')->get();
+
+        return view('exams.hasil', compact('exam', 'results'));
     }
 
+    public function hasilSemua(Request $request)
+    {
+        $query = ExamUser::query();
 
+        // Jika ada parameter 'nama' dalam request, filter berdasarkan nama pengguna
+        if ($request->has('nama')) {
+            $query->whereHas('user', function ($q) use ($request) {
+                $q->where('nama', $request->nama);
+            });
+        }
+
+        // Jika ada parameter 'ujian' dalam request, filter berdasarkan nama ujian
+        if ($request->has('ujian')) {
+            $query->whereHas('exam', function ($q) use ($request) {
+                $q->where('name', $request->ujian);
+            });
+        }
+
+        // Ambil data ujian dan skor
+        $results = $query->with(['user', 'exam'])->get();
+
+        return view('exams.table', compact('results'));
+    }
+    
+    public function cetakPDF()
+    {
+        // Ambil data yang ingin dicetak, misalnya semua hasil ujian
+        $results = ExamUser::all();
+
+        // Load view hasil ujian ke dalam variabel $html
+        $html = view('exams.table', compact('results'))->render();
+
+        // Konfigurasi DomPDF
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isRemoteEnabled', true);
+
+        // Inisialisasi DomPDF
+        $dompdf = new Dompdf($options);
+
+        // Membuat PDF dari HTML
+        $dompdf->loadHtml($html);
+
+        // (Opsional) Set ukuran dan orientasi halaman
+        $dompdf->setPaper('A4', 'landscape');
+
+        // Render PDF
+        $dompdf->render();
+
+        // Mengirimkan output PDF kepada pengguna
+        return $dompdf->stream('hasil_ujian.pdf');
+    }
 }

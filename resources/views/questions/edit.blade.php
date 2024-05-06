@@ -210,18 +210,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>                       
-
-                        <div class="form-group">
-                            <label>PEMBAHASAN</label>
-                            <textarea name="explanation" cols="30" rows="30"
-                                class="form-control">{{ old('explanation', $question->explanation) }}</textarea>
-                            @error('explanation')
-                            <div class="invalid-feedback" style="display: block">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
+                        </div>  
 
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                             SIMPAN</button>

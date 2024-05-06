@@ -71,7 +71,6 @@ class QuestionController extends Controller
             'option_C'    => 'required',
             'option_D'    => 'required',
             'answer'      => 'required',
-            'explanation' => 'required'
         ]);
 
         // Upload video jika ada
@@ -158,7 +157,6 @@ class QuestionController extends Controller
             'option_C'    => 'required',
             'option_D'    => 'required',
             'answer'      => 'required',
-            'explanation' => 'required'
         ]);
 
         if ($request->hasFile('video_id')) {

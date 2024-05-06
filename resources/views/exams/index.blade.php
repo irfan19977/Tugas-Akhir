@@ -12,6 +12,10 @@
             <div class="card">
                 <div class="card-header">
                     <h4><i class="fas fa-exam"></i> Daftar Ujian</h4>
+                    <h4>|</h4>
+                    @hasrole('teacher|admin')
+                        <a href="{{ route('exams.hasilSemua') }}" style="float: right;"><h4><i class="fa fa-print"> Lihat Hasil Ujian</i></h4> </a>
+                    @endhasrole
                 </div>
 
                 <div class="card-body">
@@ -76,11 +80,11 @@
                                             </a>
                                         @endif
                                         @endhasrole
-                                        @hasrole('teacher|admin')
+                                        {{-- @hasrole('teacher|admin')
                                         <a href="{{ route('exams.hasil', $exam->id) }}" class="btn btn-sm btn-info">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        @endhasrole
+                                        @endhasrole --}}
                                         @can('exams.edit')
                                             <a href="{{ route('exams.edit', $exam->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-pencil-alt"></i>
