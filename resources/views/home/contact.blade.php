@@ -54,7 +54,7 @@
                         <span>Jl. Pare Kandangan No.10, Kemirahan, Damarwulan, Kec. Kepung, Kabupaten Kediri</span>
                     </li>
                     <li class="mb-3">
-                        <strong class="d-block mb-1">no_wa</strong>
+                        <strong class="d-block mb-1">Whatsapp</strong>
                         <span>0835-328-631</span>
                     </li>
                     <li class="mb-3">

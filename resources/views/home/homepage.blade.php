@@ -63,7 +63,7 @@
               <h3>Buku Petunjuk</h3>
               <p>
                 Berikut merupakan buku petunjuk website SMK Wiyata Mandala</p>
-              <p><a href="{{ asset('hekel/assets/manualbook.pdf') }}" class="btn btn-primary">Download Buku Petunjuk</a></p>
+              <p><a href="{{ asset('hekel/assets/Manualbook.pdf') }}" class="btn btn-primary">Download Buku Petunjuk</a></p>
             </div>
           </div>
         </div>
