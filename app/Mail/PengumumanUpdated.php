@@ -25,6 +25,14 @@ class PengumumanUpdated extends Mailable
 
     public function build()
     {
-        return $this->subject('Update Pengumuman Baru SMK Wiyata Mandala')->view('pengumuman.emailUpdate');
+        $email = $this->subject('Pengumuman Diperbarui')
+                      ->view('pengumuman.emailUpdate');
+
+        // Lampirkan file jika ada
+        if ($this->pengumuman->file_id) {
+            $email->attach(storage_path('app/public/documents/' . $this->pengumuman->file_id));
+        }
+
+        return $email;
     }
 }

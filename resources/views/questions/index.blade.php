@@ -58,7 +58,7 @@
                         </div>
                     </form>
                     <div class="form-group" id="deleteButtonContainer" style="display: none;">
-                        <a href="" class="btn btn-danger" id="deletAllSelectedRecord">Hapus Semua</a>
+                        <a href="" class="btn btn-danger" id="deletAllSelectedRecord">Hapus</a>
                     </div>
                     
                     <div class="table-responsive">

@@ -25,8 +25,7 @@
                                 <th scope="col">NAMA SISWA</th>
                                 <th scope="col">Bahasa Inggris</th>
                                 <th scope="col">Matematika</th>
-                                <th scope="col">IPA</th>
-                                <th scope="col">TIK</th>
+                                <th scope="col">Ilmu Pengetahuan Alama</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -57,16 +56,11 @@
                                                 @php
                                                     $ipaScore = $result->score;
                                                 @endphp
-                                            @elseif ($result->exam->name === 'TIK')
-                                                @php
-                                                    $tikScore = $result->score;
-                                                @endphp
                                             @endif
                                         @endforeach
                                         <td>{{ $bahasaInggrisScore }}</td> <!-- Skor Bahasa Inggris -->
                                         <td>{{ $matematikaScore }}</td> <!-- Skor Matematika -->
                                         <td>{{ $ipaScore }}</td> <!-- Skor IPA -->
-                                        <td>{{ $tikScore }}</td> <!-- Skor TIK -->
                                     </tr>
                                 @endforeach
                             </tbody>

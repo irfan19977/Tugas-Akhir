@@ -22,9 +22,9 @@
             <div class="col-12">
                 <div class="row justify-content-center">
                     <div class="col-md-9 text-center hero-text">
-                        <h1 data-aos="fade-up" data-aos-delay="">Akuntansi dan Keuangan Lembaga</h1>
+                        <h1 data-aos="fade-up" data-aos-delay="">Akuntansi</h1>
                         <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Berikut merupakan profile jurusan
-                            Akuntansi dan Keuangan Lembaga</p>
+                            Akuntansi</p>
                     </div>
                 </div>
             </div>
@@ -48,8 +48,8 @@
             </div>
 
             <div class="col-md-9  order-2 justify-text">
-                <h3 class="mb-6">Mengenal Lebih Dekat Jurusan Akuntansi Keuangan</h3>
-                <p class="mb-6">Jurusan Akuntansi Keuangan merupakan salah satu bidang studi yang mendalami pencatatan,
+                <h3 class="mb-6">Mengenal Lebih Dekat Jurusan Akuntansi</h3>
+                <p class="mb-6">Jurusan Akuntansi merupakan salah satu bidang studi yang mendalami pencatatan,
                     analisis, dan pelaporan informasi keuangan suatu entitas. Dalam konteks pendidikan tinggi, jurusan
                     ini menjadi salah satu pilihan yang populer bagi individu yang tertarik dalam bidang akuntansi dan
                     keuangan.</p>
@@ -57,7 +57,7 @@
                     seorang profesional di dunia keuangan. Mahasiswa belajar tentang bagaimana mencatat setiap
                     transaksi, menganalisis informasi yang terdapat dalam laporan keuangan, dan mengonversi data
                     keuangan menjadi laporan yang dapat dipahami dan bermanfaat bagi pengambilan keputusan.</p>
-                <p class="mb-6">Jurusan Akuntansi Keuangan mempersiapkan individu untuk memahami dan menganalisis
+                <p class="mb-6">Jurusan Akuntansi mempersiapkan individu untuk memahami dan menganalisis
                     informasi keuangan yang penting dalam pengambilan keputusan. Dengan tantangan dan manfaatnya,
                     jurusan ini menarik bagi mereka yang tertarik pada dunia keuangan dan memiliki ketelitian yang
                     tinggi.
@@ -75,7 +75,7 @@
     <div class="container">
         <div class="row align-items-center justify-text">
             <div class="col-md-6" data-aos="fade-left" style="min-height: 400px;">
-                <h3 class="mb-4 text-center">Alasan Memilih Jurusan Akuntansi Keuangan</h3>
+                <h3 class="mb-4 text-center">Alasan Memilih Jurusan Akuntansi</h3>
                 <p class="mb-4">Ada beberapa alasan mengapa seseorang memilih untuk mengejar pendidikan di bidang
                     Akuntansi Keuangan:</p>
                 <p>
@@ -101,7 +101,7 @@
             <div class="col-md-6" data-aos="fade-right" style="min-height: 420px;">
                 <h3 class="mb-4 text-center">Materi Yang Dipelajari</h3>
                 <br>
-                <p class="mb-4">Mahasiswa jurusan Akuntansi Keuangan akan mengikuti beragam mata kuliah yang mencakup:
+                <p class="mb-4">Mahasiswa jurusan Akuntansi akan mengikuti beragam mata kuliah yang mencakup:
                 </p>
                 <p>
                     <ol>

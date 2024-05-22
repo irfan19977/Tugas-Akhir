@@ -3,7 +3,7 @@
   @if(isset($selectedQuestion))
     <div class="form-group">
       <label>PILIH SOAL</label>
-      <table id="table_id" class="table table-bordered table-hover">
+      <table id="table_id" class="table table-bordered table-hover ">
         <thead>
         <tr>
           <th>Hapus</th>
@@ -46,7 +46,7 @@
                         <input type="text" class="form-control" name="q" wire:model="q"
                                placeholder="cari berdasarkan detail soal">
                     </div>
-          <table id="table_id" class="table table-bordered table-hover">
+          <table id="table_id" class="table table-bordered table-hover table-responsive">
             <thead>
             <tr>
               <th>Pilih</th>

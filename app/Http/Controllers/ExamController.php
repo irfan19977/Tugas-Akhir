@@ -254,7 +254,7 @@ class ExamController extends Controller
         // Ambil data ujian dan skor
         $results = $query->with(['user', 'exam'])->get();
 
-        return view('exams.table', compact('results'));
+        return view('exams.hasilSemua', compact('results'));
     }
     
     public function cetakPDF()

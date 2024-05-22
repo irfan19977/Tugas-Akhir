@@ -26,7 +26,7 @@
                 </audio>
 
             @elseif($question['image_id'])
-            <img src="{{ Storage::url('public/images/'.$question->image_id) }}" style=" height:250px;">
+            <img src="{{ Storage::url('public/images/'.$question->image_id) }}" style=" height:250px;" class="question-image">
             @else
                 NO
             @endif
@@ -37,27 +37,27 @@
             $selectedAnswerKey = 'selectedAnswers.' . $question['id'];
             $selectedAnswer = session()->get($selectedAnswerKey);
         @endphp
-        <div class="btn-group-vertical" role="group" aria-label="Basic example">
-           <button type="button" class="{{ $selectedAnswer && Str::contains($selectedAnswer, 'A') ? 'btn btn-success border border-secondary rounded' : 'btn btn-light border border-secondary rounded' }}"
+        <div class="btn-group-vertical options-container" role="group" aria-label="Basic example">
+           <button type="button" class="{{ $selectedAnswer && Str::contains($selectedAnswer, 'A') ? 'btn btn-success border border-secondary rounded option-button' : 'btn btn-light border border-secondary rounded option-button' }}"
                 wire:click="answers({{ $question['id'] }}, 'A')">
                 <p class="text-left"><b> A. {{ $question['option_A'] }} </b></p>
             </button>
-            <button type="button" class="{{ $selectedAnswer && Str::contains($selectedAnswer, 'B') ? 'btn btn-success border border-secondary rounded' : 'btn btn-light border border-secondary rounded' }}"
+            <button type="button" class="{{ $selectedAnswer && Str::contains($selectedAnswer, 'B') ? 'btn btn-success border border-secondary rounded option-button' : 'btn btn-light border border-secondary rounded option-button' }}"
                     wire:click="answers({{ $question['id'] }}, 'B')">
                 <p class="text-left"><b> B. {{ $question['option_B'] }} </b></p>
             </button>
 
-            <button type="button" class="{{ $selectedAnswer && Str::contains($selectedAnswer, 'C') ? 'btn btn-success border border-secondary rounded' : 'btn btn-light border border-secondary rounded' }}"
+            <button type="button" class="{{ $selectedAnswer && Str::contains($selectedAnswer, 'C') ? 'btn btn-success border border-secondary rounded option-button' : 'btn btn-light border border-secondary rounded option-button' }}"
                     wire:click="answers({{ $question['id'] }}, 'C')">
                 <p class="text-left"><b> C. {{ $question['option_C'] }} </b></p>
             </button>
 
-            <button type="button" class="{{ $selectedAnswer && Str::contains($selectedAnswer, 'D') ? 'btn btn-success border border-secondary rounded' : 'btn btn-light border border-secondary rounded' }}"
+            <button type="button" class="{{ $selectedAnswer && Str::contains($selectedAnswer, 'D') ? 'btn btn-success border border-secondary rounded option-button' : 'btn btn-light border border-secondary rounded option-button' }}"
                     wire:click="answers({{ $question['id'] }}, 'D')">
                 <p class="text-left"><b> D. {{ $question['option_D'] }} </b></p>
             </button>
 
-            <button type="button" class="{{ $selectedAnswer && Str::contains($selectedAnswer, 'E') ? 'btn btn-success border border-secondary rounded' : 'btn btn-light border border-secondary rounded' }}"
+            <button type="button" class="{{ $selectedAnswer && Str::contains($selectedAnswer, 'E') ? 'btn btn-success border border-secondary rounded option-button' : 'btn btn-light border border-secondary rounded option-button' }}"
                     wire:click="answers({{ $question['id'] }}, 'E')">
                 <p class="text-left"><b> E. {{ $question['option_E'] }} </b></p>
             </button>
@@ -71,7 +71,7 @@
         {{ $item }}
     @endforeach --}}
     
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center pagination-container">
         {{$questions->links()}}
     </div>
     <div class="card-footer">
@@ -122,4 +122,5 @@
             localStorage.removeItem('countdownTime_user_{{ Auth::id() }}_exam_{{ $exam->id }}'); // Clear stored time when countdown ends
         }
     }, 1000);
+    
 </script>

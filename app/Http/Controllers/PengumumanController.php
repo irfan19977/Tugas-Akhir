@@ -37,36 +37,36 @@ class PengumumanController extends Controller
             'file_id' => 'nullable|mimes:pdf'
         ]);
 
-        // Upload gambar jika ada
+        // Upload PDF jika ada
         if ($request->hasFile('file_id')) {
             $file = $request->file('file_id');
             $file->storeAs('public/documents', $file->hashName());
             $fileName = $file->hashName();
+            $originalFileName = $file->getClientOriginalName();
         } else {
             $fileName = null;
+            $originalFileName = null;
         }
 
         $pengumumans = Pengumuman::create([
-            'title'     => $request->input('title'),
-            'slug' => Str::slug($request->input('title')),
-            'caption'   => $request->input('caption'),
-            'file_id' => $fileName
+            'title'             => $request->input('title'),
+            'slug'              => Str::slug($request->input('title')),
+            'caption'           => $request->input('caption'),
+            'file_id'           => $fileName,
+            'original_filename' => $originalFileName,
         ]);
 
         // Ambil semua email pengguna
         $emails = User::pluck('email')->toArray();
 
         // Kirim email notifikasi kepada semua pengguna
-        foreach ($emails as $email) 
-        {
+        foreach ($emails as $email) {
             Mail::to($email)->send(new PengumumanCreated($pengumumans));
         }
-        
+
         if($pengumumans){
-            //redirect dengan pesan sukses
             return redirect()->route('pengumuman.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        }else{
-            //redirect dengan pesan error
+        } else {
             return redirect()->route('pengumuman.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
@@ -76,56 +76,55 @@ class PengumumanController extends Controller
     return view('pengumuman.edit', compact('pengumumans'));
     }
 
-    // app/Http/Controllers/PengumumanController.php
-public function update(Request $request, $slug)
-{
-    $pengumumans = Pengumuman::where('slug', $slug)->firstOrFail();
-
-    $this->validate($request, [
-        'title'   => 'required',
-        'caption' => 'required',
-        'file_id' => 'nullable|mimes:pdf'
-    ]);
-
-   // Simpan file baru jika ada
-   if ($request->hasFile('file_id')) {
-    $file = $request->file('file_id');
-    $fileName = $file->hashName();
-    $file->storeAs('public/documents', $fileName);
-
-    // Hapus file lama jika ada
-    if ($pengumumans->file_id) {
-        Storage::delete('public/documents/' . $pengumumans->file_id);
-    }
-} else {
-    // Jika tidak ada file baru diunggah, gunakan file yang lama
-    $fileName = $pengumumans->file_id;
-}
-
-$pengumumans->update([
-    'title'   => $request->input('title'),
-    'slug'    => Str::slug($request->input('title')),
-    'caption' => $request->input('caption'),
-    'file_id' => $fileName,
-]);
-
-    // Ambil semua email pengguna
-    $emails = User::pluck('email')->toArray();
-
-    // Kirim email notifikasi kepada semua pengguna
-    foreach ($emails as $email) 
+    public function update(Request $request, $slug)
     {
-        Mail::to($email)->send(new PengumumanUpdated($pengumumans));
+        $pengumumans = Pengumuman::where('slug', $slug)->firstOrFail();
+    
+        $this->validate($request, [
+            'title'   => 'required',
+            'caption' => 'required',
+            'file_id' => 'nullable|mimes:pdf'
+        ]);
+    
+        // Simpan file baru jika ada
+        if ($request->hasFile('file_id')) {
+            $file = $request->file('file_id');
+            $fileName = $file->hashName();
+            $file->storeAs('public/documents', $fileName);
+    
+            // Hapus file lama jika ada
+            if ($pengumumans->file_id) {
+                Storage::delete('public/documents/' . $pengumumans->file_id);
+            }
+    
+            $originalFileName = $file->getClientOriginalName();
+        } else {
+            $fileName = $pengumumans->file_id;
+            $originalFileName = $pengumumans->original_filename;
+        }
+    
+        $pengumumans->update([
+            'title'             => $request->input('title'),
+            'slug'              => Str::slug($request->input('title')),
+            'caption'           => $request->input('caption'),
+            'file_id'           => $fileName,
+            'original_filename' => $originalFileName,
+        ]);
+    
+        // Ambil semua email pengguna
+        $emails = User::pluck('email')->toArray();
+    
+        // Kirim email notifikasi kepada semua pengguna
+        foreach ($emails as $email) {
+            Mail::to($email)->send(new PengumumanUpdated($pengumumans));
+        }
+    
+        if($pengumumans){
+            return redirect()->route('pengumuman.index')->with(['success' => 'Data Berhasil Diperbarui!']);
+        } else {
+            return redirect()->route('pengumuman.index')->with(['error' => 'Data Gagal Diperbarui!']);
+        }
     }
-
-    if($pengumumans){
-        //redirect dengan pesan sukses
-        return redirect()->route('pengumuman.index')->with(['success' => 'Data Berhasil Diperbarui!']);
-    }else{
-        //redirect dengan pesan error
-        return redirect()->route('pengumuman.index')->with(['error' => 'Data Gagal Diperbarui!']);
-    }
-}
 
 
     /**

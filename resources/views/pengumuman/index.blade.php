@@ -128,30 +128,38 @@
 
             @can('pengumuman.showuser')
                 @foreach ($pengumumans as $pengumuman)
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>{{ $pengumuman->title }}</h4>
-                            <div class="card-header-action">
-                                <a data-collapse="#mycard-collapse-{{ $pengumuman->id }}" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
-                            </div>
-                        </div>
-                        <div class="collapse show" id="mycard-collapse-{{ $pengumuman->id }}">
-                            <div class="card-body">
-                                <a href="{{ Storage::url('public/documents/'.$pengumuman->file_id) }}" target="_blank" rel="noopener noreferrer">Buka File</a>
-                                <div>
-                                    {!! nl2br(e($pengumuman->caption)) !!}
-                                </div> 
-                            </div>
-                            <div class="card-footer">
-                                @if ($pengumuman->created_at != $pengumuman->updated_at)
-                                    {{ $pengumuman->updated_at->format('d-m-Y H:i:s') }}
-                                @else
-                                    {{ $pengumuman->created_at->format('d-m-Y H:i:s') }}
-                                @endif
-
-                            </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>{{ $pengumuman->title }}</h4>
+                        <div class="card-header-action">
+                            <a data-collapse="#mycard-collapse-{{ $pengumuman->id }}" class="btn btn-icon btn-info" href="#"><i class="fas fa-minus"></i></a>
                         </div>
                     </div>
+                    <div class="collapse show" id="mycard-collapse-{{ $pengumuman->id }}">
+                        <div class="card-body">
+                            <div>
+                                {!! nl2br(e($pengumuman->caption)) !!}
+                                
+                            </div> 
+                            @if($pengumuman->file_id)
+                                <div style="text-align: center;">
+                                    <a href="{{ asset('storage/documents/' . $pengumuman->file_id) }}" target="_blank" rel="noopener noreferrer">
+                                        <img src="{{ asset('hekel/assets/img/icon-pdf.png') }}" alt="PDF Icon" style="width: 50px; height: auto;">
+                                    </a>
+                                    <div>{{ $pengumuman->original_filename }}</div>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="card-footer">
+                            @if ($pengumuman->created_at != $pengumuman->updated_at)
+                                {{ $pengumuman->updated_at->format('d-m-Y H:i:s') }}
+                            @else
+                                {{ $pengumuman->created_at->format('d-m-Y H:i:s') }}
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                
                     
                 @endforeach
 

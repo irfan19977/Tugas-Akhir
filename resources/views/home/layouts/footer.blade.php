@@ -6,7 +6,7 @@
           <p>Menjadi pusat belajar kejuruan terbaik, membimbing siswa dengan keahlian teknis dan keterampilan interpersonal untuk sukses karier.</p>
           <p class="social">
             <a href="tel:0835328631"><span class="bi bi-telephone"></span></a>
-            <a href="https://www.instagram.com/smkwiyatamandala.official?igsh=enlwZjBodGc1ZW84"><span class="bi bi-instagram"></span></a>
+            <a href="https://www.instagram.com/smkwiyatamandala.official/"><span class="bi bi-instagram"></span></a>
             <a href="https://www.tiktok.com/@smkwimakepung.official?_t=8jVk1MRtJ9G&_r=1"><span class="bi bi-tiktok"></span></a>
             <a href="https://www.youtube.com/@smkwiyatamandalakepungoffi1239"><span class="bi bi-youtube"></span></a>
           </p>

@@ -8,19 +8,9 @@
             <h1>PERTANYAAN</h1>
         </div>
 
-        
-
         <div class="section-body">
-            
-            
             @livewire('quiz', ['id' => $id])
-            
         </div>
     </section>
 </div>
 @stop
-
-
-
-
-

@@ -23,8 +23,6 @@ class QuestionsImport implements ToModel
             'option_D' => $row[5],
             'option_E' => $row[6],
             'answer' => $row[7],
-            'explanation' => $row[8],
-            'created_by' => $row[9],
 
         ]);
     }
